@@ -76,7 +76,12 @@ public class AllocationServlet extends HttpServlet {
 
             if (allocated) {
                 // Update student status in students.xml
-                xmlManager.updateStudentAllocationStatus(rollNumber, "ALLOCATED", block, floor, roomNo, bedNo);
+                boolean statusUpdated = xmlManager.updateStudentAllocationStatus(rollNumber, "ALLOCATED", block, floor, roomNo, bedNo);
+
+                if (!statusUpdated) {
+                    sendJsonError(response, "Room allocated but student status not updated");
+                    return;
+                }
 
                 // Get student info for email
                 Map<String, String> student = xmlManager.getStudentByRollNo(rollNumber);

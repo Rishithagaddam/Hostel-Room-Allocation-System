@@ -311,6 +311,12 @@ function selectBed(event, roomId, bedId, status, roomName) {
                 // Reload data to reflect changes
                 loadStudents();
                 loadRooms();
+                if (typeof loadDashboardStats === "function") {
+                    loadDashboardStats();
+                }
+                if (typeof loadAllocatedStudents === "function") {
+                    loadAllocatedStudents();
+                }
                 resetAllocation();
             } else {
                 alert('Error: ' + data.message);
@@ -374,6 +380,12 @@ function confirmAllocation() {
                 // Reload data to reflect changes
                 loadStudents();
                 loadRooms();
+                if (typeof loadDashboardStats === "function") {
+                    loadDashboardStats();
+                }
+                if (typeof loadAllocatedStudents === "function") {
+                    loadAllocatedStudents();
+                }
                 resetAllocation();
             } else {
                 alert('Error: ' + data.message);
