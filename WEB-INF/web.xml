@@ -78,6 +78,16 @@
         <url-pattern>/api/rooms</url-pattern>
     </servlet-mapping>
 
+    <!-- HostelStructureServlet -->
+    <servlet>
+        <servlet-name>HostelStructureServlet</servlet-name>
+        <servlet-class>com.hostel.HostelStructureServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HostelStructureServlet</servlet-name>
+        <url-pattern>/structure</url-pattern>
+    </servlet-mapping>
+
     <!-- AllocatedStudentsServlet -->
     <servlet>
         <servlet-name>AllocatedStudentsServlet</servlet-name>

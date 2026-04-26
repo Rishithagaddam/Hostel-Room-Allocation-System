@@ -701,6 +701,207 @@ public class XMLManager {
     }
 
     /**
+     * Add a room to a specific block and floor
+     */
+    public boolean addRoom(String blockName, String floorNumber, String roomNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Find the floor
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            // Check if room already exists
+                            NodeList roomNodes = floor.getElementsByTagName("room");
+                            for (int k = 0; k < roomNodes.getLength(); k++) {
+                                Element room = (Element) roomNodes.item(k);
+                                if (roomNumber.equals(room.getAttribute("number"))) {
+                                    return false; // Room already exists
+                                }
+                            }
+
+                            // Add new room with default 3 beds
+                            Element room = doc.createElement("room");
+                            room.setAttribute("number", roomNumber);
+                            floor.appendChild(room);
+
+                            // Add 3 beds per room
+                            for (int bedNum = 1; bedNum <= 3; bedNum++) {
+                                Element bed = doc.createElement("bed");
+                                bed.setAttribute("number", String.valueOf(bedNum));
+                                bed.setAttribute("status", "available");
+                                bed.setAttribute("rollNo", "");
+                                room.appendChild(bed);
+                            }
+
+                            doc.normalize();
+                            saveDocument(doc, getFilePath());
+                            return true;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Remove a room from a specific block and floor
+     */
+    public boolean removeRoom(String blockName, String floorNumber, String roomNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Find the floor
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            // Find and remove the room
+                            NodeList roomNodes = floor.getElementsByTagName("room");
+                            for (int k = 0; k < roomNodes.getLength(); k++) {
+                                Element room = (Element) roomNodes.item(k);
+                                if (roomNumber.equals(room.getAttribute("number"))) {
+                                    floor.removeChild(room);
+                                    doc.normalize();
+                                    saveDocument(doc, getFilePath());
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Add a bed to a specific room
+     */
+    public boolean addBed(String blockName, String floorNumber, String roomNumber, String bedNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Find the floor
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            // Find the room
+                            NodeList roomNodes = floor.getElementsByTagName("room");
+                            for (int k = 0; k < roomNodes.getLength(); k++) {
+                                Element room = (Element) roomNodes.item(k);
+                                if (roomNumber.equals(room.getAttribute("number"))) {
+                                    // Check if bed already exists
+                                    NodeList bedNodes = room.getElementsByTagName("bed");
+                                    for (int l = 0; l < bedNodes.getLength(); l++) {
+                                        Element bed = (Element) bedNodes.item(l);
+                                        if (bedNumber.equals(bed.getAttribute("number"))) {
+                                            return false; // Bed already exists
+                                        }
+                                    }
+
+                                    // Add new bed
+                                    Element bed = doc.createElement("bed");
+                                    bed.setAttribute("number", bedNumber);
+                                    bed.setAttribute("status", "available");
+                                    bed.setAttribute("rollNo", "");
+                                    room.appendChild(bed);
+
+                                    doc.normalize();
+                                    saveDocument(doc, getFilePath());
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Remove a bed from a specific room
+     */
+    public boolean removeBed(String blockName, String floorNumber, String roomNumber, String bedNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Find the floor
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            // Find the room
+                            NodeList roomNodes = floor.getElementsByTagName("room");
+                            for (int k = 0; k < roomNodes.getLength(); k++) {
+                                Element room = (Element) roomNodes.item(k);
+                                if (roomNumber.equals(room.getAttribute("number"))) {
+                                    // Find and remove the bed
+                                    NodeList bedNodes = room.getElementsByTagName("bed");
+                                    for (int l = 0; l < bedNodes.getLength(); l++) {
+                                        Element bed = (Element) bedNodes.item(l);
+                                        if (bedNumber.equals(bed.getAttribute("number"))) {
+                                            // Check if bed is occupied
+                                            if ("occupied".equals(bed.getAttribute("status"))) {
+                                                return false; // Cannot remove occupied bed
+                                            }
+                                            room.removeChild(bed);
+                                            doc.normalize();
+                                            saveDocument(doc, getFilePath());
+                                            return true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
      * Get registered students from students.xml
      */
     public List<Map<String, String>> getRegisteredStudents() {
@@ -780,6 +981,207 @@ public class XMLManager {
             e.printStackTrace();
         }
         return rooms;
+    }
+
+    /**
+     * Add a block to the hostel structure
+     */
+    public boolean addBlock(String blockName) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Check if block already exists
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    return false; // Block already exists
+                }
+            }
+
+            // Add new block
+            Element block = doc.createElement("block");
+            block.setAttribute("name", blockName);
+            rooms.appendChild(block);
+
+            doc.normalize();
+            saveDocument(doc, getFilePath());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Remove a block from the hostel structure
+     */
+    public boolean removeBlock(String blockName) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find and remove the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Check if block has occupied beds
+                    if (hasOccupiedBeds(block)) {
+                        return false; // Cannot remove block with occupied beds
+                    }
+                    rooms.removeChild(block);
+                    doc.normalize();
+                    saveDocument(doc, getFilePath());
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Add a floor to a specific block
+     */
+    public boolean addFloor(String blockName, String floorNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Check if floor already exists
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            return false; // Floor already exists
+                        }
+                    }
+
+                    // Add new floor
+                    Element floor = doc.createElement("floor");
+                    floor.setAttribute("number", floorNumber);
+                    block.appendChild(floor);
+
+                    doc.normalize();
+                    saveDocument(doc, getFilePath());
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Remove a floor from a specific block
+     */
+    public boolean removeFloor(String blockName, String floorNumber) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+
+            // Find the block
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    // Find and remove the floor
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        if (floorNumber.equals(floor.getAttribute("number"))) {
+                            // Check if floor has occupied beds
+                            if (hasOccupiedBeds(floor)) {
+                                return false; // Cannot remove floor with occupied beds
+                            }
+                            block.removeChild(floor);
+                            doc.normalize();
+                            saveDocument(doc, getFilePath());
+                            return true;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Get all blocks
+     */
+    public List<String> getAllBlocks() {
+        List<String> blocks = new ArrayList<>();
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                blocks.add(block.getAttribute("name"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return blocks;
+    }
+
+    /**
+     * Get floors by block
+     */
+    public List<String> getFloorsByBlock(String blockName) {
+        List<String> floors = new ArrayList<>();
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+            Element rooms = (Element) hostel.getElementsByTagName("rooms").item(0);
+            NodeList blockNodes = rooms.getElementsByTagName("block");
+
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element block = (Element) blockNodes.item(i);
+                if (blockName.equals(block.getAttribute("name"))) {
+                    NodeList floorNodes = block.getElementsByTagName("floor");
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floor = (Element) floorNodes.item(j);
+                        floors.add(floor.getAttribute("number"));
+                    }
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return floors;
+    }
+
+    /**
+     * Check if an element has occupied beds
+     */
+    private boolean hasOccupiedBeds(Element element) {
+        NodeList bedNodes = element.getElementsByTagName("bed");
+        for (int i = 0; i < bedNodes.getLength(); i++) {
+            Element bed = (Element) bedNodes.item(i);
+            if ("occupied".equals(bed.getAttribute("status"))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

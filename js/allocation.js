@@ -128,6 +128,11 @@ function displayRooms(rooms) {
                     `).join('')}
                 </div>
 
+                <div class="room-controls">
+                    <button class="btn btn-sm btn-success" onclick="addBed('${room.roomNo}')">+ Bed</button>
+                    <button class="btn btn-sm btn-danger" onclick="removeBed('${room.roomNo}')">- Bed</button>
+                </div>
+
                 <div class="bed-legend">
                     <span><span class="bed-legend-icon bed-available"></span> Available</span>
                     <span><span class="bed-legend-icon bed-occupied"></span> Occupied</span>
@@ -425,3 +430,93 @@ document.addEventListener('DOMContentLoaded', function() {
     loadStudents();
     loadRooms();
 });
+
+/**
+ * Add a bed to a room
+ */
+function addBed(roomNumber) {
+    if (!selectedBlock || !selectedFloor) {
+        alert('Please select a block and floor first');
+        return;
+    }
+
+    const bedNumber = prompt('Enter bed number to add:');
+    if (!bedNumber || bedNumber.trim() === '') {
+        return;
+    }
+
+    if (confirm(`Are you sure you want to add bed ${bedNumber} to room ${roomNumber}?`)) {
+        const formData = new URLSearchParams();
+        formData.append('action', 'addBed');
+        formData.append('blockName', selectedBlock);
+        formData.append('floorNumber', selectedFloor);
+        formData.append('roomNumber', roomNumber);
+        formData.append('bedNumber', bedNumber);
+
+        fetch('/hostel-allocation/structure', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Bed added successfully!');
+                loadRooms(); // Reload rooms to show the new bed
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while adding the bed');
+        });
+    }
+}
+
+/**
+ * Remove a bed from a room
+ */
+function removeBed(roomNumber) {
+    if (!selectedBlock || !selectedFloor) {
+        alert('Please select a block and floor first');
+        return;
+    }
+
+    const bedNumber = prompt('Enter bed number to remove:');
+    if (!bedNumber || bedNumber.trim() === '') {
+        return;
+    }
+
+    if (confirm(`Are you sure you want to remove bed ${bedNumber} from room ${roomNumber}?`)) {
+        const formData = new URLSearchParams();
+        formData.append('action', 'removeBed');
+        formData.append('blockName', selectedBlock);
+        formData.append('floorNumber', selectedFloor);
+        formData.append('roomNumber', roomNumber);
+        formData.append('bedNumber', bedNumber);
+
+        fetch('/hostel-allocation/structure', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Bed removed successfully!');
+                loadRooms(); // Reload rooms to reflect the removal
+            } else {
+                alert('Error: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while removing the bed');
+        });
+    }
+}
