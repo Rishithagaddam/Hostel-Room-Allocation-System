@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hostel>
+    <!-- Structure: 4 Blocks × 4 Floors × 5 Rooms × 3 Beds -->
+    <!-- Total: 240 rooms, 720 beds -->
+
+    <!-- BLOCK A -->
+    <block>
+        <block_id>A</block_id>
+        <block_name>Block A</block_name>
+
+        <!-- Floor 1 -->
+        <floor>
+            <floor_id>A-1</floor_id>
+            <floor_number>1</floor_number>
+
+            <room>
+                <room_id>A-1-1</room_id>
+                <room_number>101</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-1-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-1-2</room_id>
+                <room_number>102</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-1-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-1-3</room_id>
+                <room_number>103</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-1-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-1-4</room_id>
+                <room_number>104</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-1-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-1-5</room_id>
+                <room_number>105</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-1-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-1-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 2 -->
+        <floor>
+            <floor_id>A-2</floor_id>
+            <floor_number>2</floor_number>
+
+            <room>
+                <room_id>A-2-1</room_id>
+                <room_number>201</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-2-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-2-2</room_id>
+                <room_number>202</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-2-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-2-3</room_id>
+                <room_number>203</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-2-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-2-4</room_id>
+                <room_number>204</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-2-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-2-5</room_id>
+                <room_number>205</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-2-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-2-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 3 -->
+        <floor>
+            <floor_id>A-3</floor_id>
+            <floor_number>3</floor_number>
+
+            <room>
+                <room_id>A-3-1</room_id>
+                <room_number>301</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-3-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-3-2</room_id>
+                <room_number>302</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-3-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-3-3</room_id>
+                <room_number>303</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-3-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-3-4</room_id>
+                <room_number>304</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-3-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-3-5</room_id>
+                <room_number>305</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-3-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-3-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 4 -->
+        <floor>
+            <floor_id>A-4</floor_id>
+            <floor_number>4</floor_number>
+
+            <room>
+                <room_id>A-4-1</room_id>
+                <room_number>401</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-4-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-4-2</room_id>
+                <room_number>402</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-4-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-4-3</room_id>
+                <room_number>403</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-4-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-4-4</room_id>
+                <room_number>404</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-4-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>A-4-5</room_id>
+                <room_number>405</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>A-4-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>A-4-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+    </block>
+
+    <!-- BLOCK B -->
+    <block>
+        <block_id>B</block_id>
+        <block_name>Block B</block_name>
+
+        <!-- Floor 1 -->
+        <floor>
+            <floor_id>B-1</floor_id>
+            <floor_number>1</floor_number>
+
+            <room>
+                <room_id>B-1-1</room_id>
+                <room_number>101</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-1-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-1-2</room_id>
+                <room_number>102</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-1-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-1-3</room_id>
+                <room_number>103</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-1-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-1-4</room_id>
+                <room_number>104</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-1-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-1-5</room_id>
+                <room_number>105</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-1-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-1-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 2 -->
+        <floor>
+            <floor_id>B-2</floor_id>
+            <floor_number>2</floor_number>
+
+            <room>
+                <room_id>B-2-1</room_id>
+                <room_number>201</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-2-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-2-2</room_id>
+                <room_number>202</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-2-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-2-3</room_id>
+                <room_number>203</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-2-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-2-4</room_id>
+                <room_number>204</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-2-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-2-5</room_id>
+                <room_number>205</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-2-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-2-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 3 -->
+        <floor>
+            <floor_id>B-3</floor_id>
+            <floor_number>3</floor_number>
+
+            <room>
+                <room_id>B-3-1</room_id>
+                <room_number>301</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-3-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-3-2</room_id>
+                <room_number>302</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-3-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-3-3</room_id>
+                <room_number>303</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-3-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-3-4</room_id>
+                <room_number>304</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-3-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-3-5</room_id>
+                <room_number>305</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-3-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-3-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 4 -->
+        <floor>
+            <floor_id>B-4</floor_id>
+            <floor_number>4</floor_number>
+
+            <room>
+                <room_id>B-4-1</room_id>
+                <room_number>401</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-4-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-4-2</room_id>
+                <room_number>402</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-4-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-4-3</room_id>
+                <room_number>403</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-4-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-4-4</room_id>
+                <room_number>404</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-4-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>B-4-5</room_id>
+                <room_number>405</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>B-4-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>B-4-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+    </block>
+
+    <!-- BLOCK C -->
+    <block>
+        <block_id>C</block_id>
+        <block_name>Block C</block_name>
+
+        <!-- Floor 1 -->
+        <floor>
+            <floor_id>C-1</floor_id>
+            <floor_number>1</floor_number>
+
+            <room>
+                <room_id>C-1-1</room_id>
+                <room_number>101</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-1-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-1-2</room_id>
+                <room_number>102</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-1-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-1-3</room_id>
+                <room_number>103</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-1-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-1-4</room_id>
+                <room_number>104</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-1-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-1-5</room_id>
+                <room_number>105</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-1-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-1-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 2 -->
+        <floor>
+            <floor_id>C-2</floor_id>
+            <floor_number>2</floor_number>
+
+            <room>
+                <room_id>C-2-1</room_id>
+                <room_number>201</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-2-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-2-2</room_id>
+                <room_number>202</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-2-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-2-3</room_id>
+                <room_number>203</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-2-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-2-4</room_id>
+                <room_number>204</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-2-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-2-5</room_id>
+                <room_number>205</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-2-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-2-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 3 -->
+        <floor>
+            <floor_id>C-3</floor_id>
+            <floor_number>3</floor_number>
+
+            <room>
+                <room_id>C-3-1</room_id>
+                <room_number>301</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-3-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-3-2</room_id>
+                <room_number>302</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-3-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-3-3</room_id>
+                <room_number>303</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-3-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-3-4</room_id>
+                <room_number>304</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-3-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-3-5</room_id>
+                <room_number>305</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-3-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-3-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 4 -->
+        <floor>
+            <floor_id>C-4</floor_id>
+            <floor_number>4</floor_number>
+
+            <room>
+                <room_id>C-4-1</room_id>
+                <room_number>401</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-4-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-4-2</room_id>
+                <room_number>402</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-4-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-4-3</room_id>
+                <room_number>403</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-4-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-4-4</room_id>
+                <room_number>404</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-4-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>C-4-5</room_id>
+                <room_number>405</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>C-4-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>C-4-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+    </block>
+
+    <!-- BLOCK D -->
+    <block>
+        <block_id>D</block_id>
+        <block_name>Block D</block_name>
+
+        <!-- Floor 1 -->
+        <floor>
+            <floor_id>D-1</floor_id>
+            <floor_number>1</floor_number>
+
+            <room>
+                <room_id>D-1-1</room_id>
+                <room_number>101</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-1-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-1-2</room_id>
+                <room_number>102</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-1-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-1-3</room_id>
+                <room_number>103</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-1-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-1-4</room_id>
+                <room_number>104</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-1-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-1-5</room_id>
+                <room_number>105</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-1-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-1-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 2 -->
+        <floor>
+            <floor_id>D-2</floor_id>
+            <floor_number>2</floor_number>
+
+            <room>
+                <room_id>D-2-1</room_id>
+                <room_number>201</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-2-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-2-2</room_id>
+                <room_number>202</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-2-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-2-3</room_id>
+                <room_number>203</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-2-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-2-4</room_id>
+                <room_number>204</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-2-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-2-5</room_id>
+                <room_number>205</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-2-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-2-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 3 -->
+        <floor>
+            <floor_id>D-3</floor_id>
+            <floor_number>3</floor_number>
+
+            <room>
+                <room_id>D-3-1</room_id>
+                <room_number>301</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-3-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-3-2</room_id>
+                <room_number>302</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-3-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-3-3</room_id>
+                <room_number>303</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-3-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-3-4</room_id>
+                <room_number>304</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-3-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-3-5</room_id>
+                <room_number>305</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-3-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-3-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+        <!-- Floor 4 -->
+        <floor>
+            <floor_id>D-4</floor_id>
+            <floor_number>4</floor_number>
+
+            <room>
+                <room_id>D-4-1</room_id>
+                <room_number>401</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-4-1-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-1-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-1-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-4-2</room_id>
+                <room_number>402</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-4-2-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-2-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-2-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-4-3</room_id>
+                <room_number>403</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-4-3-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-3-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-3-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-4-4</room_id>
+                <room_number>404</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-4-4-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-4-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-4-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+            <room>
+                <room_id>D-4-5</room_id>
+                <room_number>405</room_number>
+                <room_image>/images/room-default.jpg</room_image>
+                <bed><bed_id>D-4-5-1</bed_id><bed_number>1</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-5-2</bed_id><bed_number>2</bed_number><status>AVAILABLE</status></bed>
+                <bed><bed_id>D-4-5-3</bed_id><bed_number>3</bed_number><status>AVAILABLE</status></bed>
+            </room>
+
+        </floor>
+
+    </block>
+
+</hostel>

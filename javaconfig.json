@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "source": "1.8",
+        "target": "1.8"
+    },
+    "sourcePath": ["WEB-INF/classes/com/hostel"],
+    "classPath": [
+        "WEB-INF/classes",
+        "../../../lib/servlet-api.jar"
+    ],
+    "outputPath": "WEB-INF/classes"
+}

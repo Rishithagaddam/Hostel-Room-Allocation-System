@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocations>
+    <!-- Student allocations will be stored here -->
+    <!-- Format:
+    <allocation>
+        <allocation_id>unique-id</allocation_id>
+        <student_id>S001</student_id>
+        <room_id>A-1-1</room_id>
+        <bed_id>A-1-1-1</bed_id>
+        <allocation_date>2026-01-15</allocation_date>
+        <status>ACTIVE</status>
+    </allocation>
+    -->
+</allocations>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<students>
+                
+    
+    
+    <!-- Default Warden Account -->
+                
+    
+    
+    <!-- Username: warden, Password: warden123 (hashed) -->
+                
+    
+    
+    <student>
+                                
+        
+        
+        <student_id>W001</student_id>
+                                
+        
+        
+        <name>Hostel Warden</name>
+                                
+        
+        
+        <email>warden@hostel.edu</email>
+                                
+        
+        
+        <username>warden</username>
+                                
+        
+        
+        <password_hash>a6e4b408c8d87fa54412db5204fc4f7e</password_hash>
+                                
+        
+        
+        <role>warden</role>
+                                
+        
+        
+        <year>0</year>
+                                
+        
+        
+        <payment_status>completed</payment_status>
+                                
+        
+        
+        <registration_date>2026-01-01</registration_date>
+                            
+    
+    
+    </student>
+            
+    
+    
+    
+</students>

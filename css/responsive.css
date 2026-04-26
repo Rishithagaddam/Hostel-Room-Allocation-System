@@ -1,0 +1,413 @@
+/* Responsive Design for Mobile Devices */
+
+/* Tablet Devices (769px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .room-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .room-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group:last-child {
+        grid-column: auto;
+    }
+}
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .navbar h2 {
+        font-size: 18px;
+    }
+
+    .user-info {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .user-info .btn {
+        width: 100%;
+    }
+
+    /* Login Page */
+    .login-container {
+        max-width: 100%;
+    }
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .login-header h1 {
+        font-size: 22px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    /* Statistics Grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+    }
+
+    /* Dashboard Sections */
+    .form-section,
+    .room-section,
+    .occupancy-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form-section h2,
+    .room-section h2 {
+        font-size: 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    /* Room Cards */
+    .room-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .room-card {
+        max-width: 100%;
+    }
+
+    /* Room Detail Card */
+    .room-header-section {
+        padding: 20px;
+    }
+
+    .room-header-section h1 {
+        font-size: 24px;
+    }
+
+    .room-detail-layout {
+        grid-template-columns: 1fr;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .room-image {
+        height: 200px;
+        max-width: 100%;
+    }
+
+    .room-details-section {
+        gap: 15px;
+    }
+
+    .detail-item {
+        padding: 12px;
+    }
+
+    .detail-value {
+        font-size: 16px;
+    }
+
+    .room-features,
+    .room-rules {
+        padding: 15px;
+    }
+
+    .room-features h3,
+    .room-rules h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .room-features li,
+    .room-rules li {
+        margin: 8px 0;
+        font-size: 13px;
+    }
+
+    /* Alert */
+    .alert {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .credentials-box {
+        padding: 10px;
+        margin-top: 8px;
+        font-size: 12px;
+    }
+
+    /* Error Container */
+    .error-container {
+        min-height: calc(100vh - 80px);
+        padding: 15px;
+    }
+
+    .error-card {
+        padding: 25px;
+    }
+
+    .error-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .error-card h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .error-message {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .error-actions .btn {
+        max-width: none;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+
+    /* Navbar */
+    .navbar-content {
+        padding: 10px;
+    }
+
+    .navbar h2 {
+        font-size: 16px;
+    }
+
+    /* Login */
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-header h1 {
+        font-size: 20px;
+    }
+
+    .login-info {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    /* Statistics */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    /* Sections */
+    .form-section,
+    .room-section,
+    .occupancy-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .form-section h2,
+    .room-section h2 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .room-detail-layout {
+        padding: 15px;
+    }
+
+    .room-header-section {
+        padding: 15px;
+    }
+
+    .room-header-section h1 {
+        font-size: 20px;
+    }
+
+    .room-image {
+        height: 150px;
+    }
+
+    .detail-item {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .detail-value {
+        font-size: 14px;
+    }
+
+    .room-features,
+    .room-rules {
+        padding: 15px;
+    }
+
+    .room-features li,
+    .room-rules li {
+        font-size: 12px;
+    }
+
+    /* Forms */
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    /* Occupancy Bar */
+    .occupancy-bar {
+        height: 25px;
+    }
+
+    /* Error */
+    .error-card {
+        padding: 20px;
+    }
+
+    .error-icon {
+        font-size: 32px;
+    }
+
+    .error-card h2 {
+        font-size: 18px;
+    }
+}
+
+/* Very Small Devices (up to 360px) */
+@media (max-width: 360px) {
+    .navbar-content {
+        flex-wrap: wrap;
+    }
+
+    .navbar h2 {
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .login-header h1 {
+        font-size: 18px;
+    }
+
+    .stats-grid {
+        gap: 8px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .btn,
+    .error-actions {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .room-detail-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .room-card,
+    .room-image {
+        page-break-inside: avoid;
+    }
+}

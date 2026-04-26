@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gray background -->
+  <rect width="400" height="250" fill="#cccccc"/>
+
+  <!-- Placeholder text -->
+  <text x="200" y="100" font-size="18" font-weight="bold" text-anchor="middle" fill="#666">Room Image</text>
+  <text x="200" y="130" font-size="14" text-anchor="middle" fill="#999">Not Available</text>
+
+  <!-- Camera icon -->
+  <circle cx="200" cy="180" r="20" fill="none" stroke="#999" stroke-width="2"/>
+  <circle cx="200" cy="180" r="12" fill="none" stroke="#999" stroke-width="2"/>
+  <circle cx="210" cy="170" r="3" fill="#999"/>
+</svg>

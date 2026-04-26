@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="250" fill="#e8eef5"/>
+
+  <!-- Wall color -->
+  <rect x="20" y="30" width="360" height="180" fill="#f0f5f8" stroke="#4A6FA5" stroke-width="2"/>
+
+  <!-- Window -->
+  <rect x="60" y="50" width="80" height="60" fill="#87ceeb" stroke="#4A6FA5" stroke-width="2"/>
+  <line x1="100" y1="50" x2="100" y2="110" stroke="#4A6FA5" stroke-width="1"/>
+  <line x1="60" y1="80" x2="140" y2="80" stroke="#4A6FA5" stroke-width="1"/>
+
+  <!-- Door -->
+  <rect x="280" y="130" width="60" height="80" fill="#8B6FA0" stroke="#4A6FA5" stroke-width="2"/>
+  <circle cx="335" cy="170" r="4" fill="#ffd700"/>
+
+  <!-- Beds -->
+  <!-- Bed 1 -->
+  <rect x="40" y="120" width="70" height="50" fill="#d4a5a5" stroke="#4A6FA5" stroke-width="2" rx="5"/>
+  <rect x="40" y="120" width="70" height="20" fill="#c9a9a9" stroke="#4A6FA5" stroke-width="1"/>
+
+  <!-- Bed 2 -->
+  <rect x="150" y="120" width="70" height="50" fill="#a5d4a5" stroke="#4A6FA5" stroke-width="2" rx="5"/>
+  <rect x="150" y="120" width="70" height="20" fill="#9ac99a" stroke="#4A6FA5" stroke-width="1"/>
+
+  <!-- Bed 3 -->
+  <rect x="260" y="40" width="70" height="50" fill="#a5bfd4" stroke="#4A6FA5" stroke-width="2" rx="5"/>
+  <rect x="260" y="40" width="70" height="20" fill="#9ab4c9" stroke="#4A6FA5" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="200" y="230" font-size="16" font-weight="bold" text-anchor="middle" fill="#4A6FA5">Hostel Room</text>
+</svg>

@@ -1,0 +1,18 @@
+{
+    "java.project.sourcePaths": ["WEB-INF/classes/com/hostel"],
+    "java.project.outputPath": "WEB-INF/classes",
+    "java.project.referencedLibraries": [
+        "apache-tomcat-9.0.117/lib/servlet-api.jar",
+        "apache-tomcat-9.0.117/lib/*.jar"
+    ],
+    "java.home": "C:\\Program Files\\Java\\jdk1.8.0_381",
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.checkstyle.autocheck": false,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java",
+        "editor.formatOnSave": false
+    },
+    "files.exclude": {
+        "**/*.class": true
+    }
+}
