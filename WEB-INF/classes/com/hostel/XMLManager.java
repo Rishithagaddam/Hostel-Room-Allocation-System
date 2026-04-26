@@ -163,7 +163,11 @@ public class XMLManager {
      */
     public Map<String, String> getStudentByUsername(String username) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath()));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return null;
+            }
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList students = doc.getElementsByTagName("student");
 
             for (int i = 0; i < students.getLength(); i++) {
@@ -400,7 +404,11 @@ public class XMLManager {
     public List<Map<String, String>> getStudentsByYear(String year) {
         List<Map<String, String>> students = new ArrayList<>();
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath()));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return students;
+            }
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList studentList = doc.getElementsByTagName("student");
 
             for (int i = 0; i < studentList.getLength(); i++) {
@@ -665,7 +673,11 @@ public class XMLManager {
 
     private int getNextStudentNumber() {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath()));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return 1;
+            }
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList students = doc.getElementsByTagName("student");
             return students.getLength() + 1;
         } catch (IOException | SAXException e) {
@@ -1215,6 +1227,305 @@ public class XMLManager {
         }
 
         return false;
+    }
+
+    /**
+     * Get student by ID (student_id like S001, S002, etc.)
+     */
+    public Map<String, String> getStudentById(String studentId) {
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return null;
+            }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList students = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < students.getLength(); i++) {
+                Element student = (Element) students.item(i);
+                String sid = getElementValue(student, "student_id");
+                if (sid != null && sid.equals(studentId)) {
+                    return parseStudentElement(student);
+                }
+            }
+        } catch (IOException | SAXException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Update student details (name, email, year only - not roll number)
+     */
+    public boolean updateStudent(String studentId, String name, String email, String year) {
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return false;
+            }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                String sid = getElementValue(student, "student_id");
+
+                if (sid != null && sid.equals(studentId)) {
+                    setOrCreateElement(doc, student, "name", name);
+                    setOrCreateElement(doc, student, "email", email);
+                    setOrCreateElement(doc, student, "year", year);
+
+                    saveDocument(doc, studentsFile.getAbsolutePath());
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Delete a student from students.xml and release allocated bed if allocated
+     */
+    public boolean deleteStudent(String studentId) {
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return false;
+            }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                String sid = getElementValue(student, "student_id");
+
+                if (sid != null && sid.equals(studentId)) {
+                    // If student is allocated, release the bed
+                    String allocStatus = getElementValue(student, "allocation_status");
+                    if ("ALLOCATED".equals(allocStatus)) {
+                        String block = getElementValue(student, "allocated_block");
+                        String floor = getElementValue(student, "allocated_floor");
+                        String room = getElementValue(student, "allocated_room");
+                        String bed = getElementValue(student, "allocated_bed");
+
+                        if (block != null && floor != null && room != null && bed != null) {
+                            // Release bed in hostel.xml
+                            releaseBed(block, floor, room, bed);
+                        }
+                    }
+
+                    // Remove student element from DOM
+                    Element root = doc.getDocumentElement();
+                    root.removeChild(student);
+                    saveDocument(doc, studentsFile.getAbsolutePath());
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Search students by name or year
+     * Returns list of matching students
+     */
+    public List<Map<String, String>> searchStudents(String searchTerm) {
+        List<Map<String, String>> results = new ArrayList<>();
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return results;
+            }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+            String searchLower = searchTerm.toLowerCase().trim();
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                String role = getElementValue(student, "role");
+
+                // Skip warden accounts
+                if ("warden".equals(role)) {
+                    continue;
+                }
+
+                String name = getElementValue(student, "name");
+                String year = getElementValue(student, "year");
+
+                // Check if name or year matches search term
+                if ((name != null && name.toLowerCase().contains(searchLower)) ||
+                    (year != null && year.equals(searchLower))) {
+                    results.add(parseStudentElement(student));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    /**
+     * Check if a bed is available in hostel.xml
+     */
+    public boolean isBedAvailable(String block, String floor, String room, String bed) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            NodeList blockList = doc.getElementsByTagName("block");
+
+            for (int i = 0; i < blockList.getLength(); i++) {
+                Element blockElem = (Element) blockList.item(i);
+                if (!block.equals(blockElem.getAttribute("name"))) continue;
+
+                NodeList floorList = blockElem.getElementsByTagName("floor");
+                for (int j = 0; j < floorList.getLength(); j++) {
+                    Element floorElem = (Element) floorList.item(j);
+                    if (!floor.equals(floorElem.getAttribute("number"))) continue;
+
+                    NodeList roomList = floorElem.getElementsByTagName("room");
+                    for (int k = 0; k < roomList.getLength(); k++) {
+                        Element roomElem = (Element) roomList.item(k);
+                        if (!room.equals(roomElem.getAttribute("number"))) continue;
+
+                        NodeList bedList = roomElem.getElementsByTagName("bed");
+                        for (int l = 0; l < bedList.getLength(); l++) {
+                            Element bedElem = (Element) bedList.item(l);
+                            if (bed.equals(bedElem.getAttribute("number"))) {
+                                String status = bedElem.getAttribute("status");
+                                return "available".equalsIgnoreCase(status);
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Release a bed (mark as available and clear rollNo)
+     */
+    private boolean releaseBed(String block, String floor, String room, String bed) {
+        try {
+            File hostelFile = new File(getFilePath());
+            Document doc = documentBuilder.parse(hostelFile);
+            NodeList blockList = doc.getElementsByTagName("block");
+
+            for (int i = 0; i < blockList.getLength(); i++) {
+                Element blockElem = (Element) blockList.item(i);
+                if (!block.equals(blockElem.getAttribute("name"))) continue;
+
+                NodeList floorList = blockElem.getElementsByTagName("floor");
+                for (int j = 0; j < floorList.getLength(); j++) {
+                    Element floorElem = (Element) floorList.item(j);
+                    if (!floor.equals(floorElem.getAttribute("number"))) continue;
+
+                    NodeList roomList = floorElem.getElementsByTagName("room");
+                    for (int k = 0; k < roomList.getLength(); k++) {
+                        Element roomElem = (Element) roomList.item(k);
+                        if (!room.equals(roomElem.getAttribute("number"))) continue;
+
+                        NodeList bedList = roomElem.getElementsByTagName("bed");
+                        for (int l = 0; l < bedList.getLength(); l++) {
+                            Element bedElem = (Element) bedList.item(l);
+                            if (bed.equals(bedElem.getAttribute("number"))) {
+                                bedElem.setAttribute("status", "available");
+                                bedElem.setAttribute("rollNo", "");
+                                saveDocument(doc, hostelFile.getAbsolutePath());
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * Get count of available beds for a specific year
+     */
+    public int getAvailableBedCountForYear(String year) {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            NodeList beds = doc.getElementsByTagName("bed");
+            int count = 0;
+
+            for (int i = 0; i < beds.getLength(); i++) {
+                Element bed = (Element) beds.item(i);
+                String status = bed.getAttribute("status");
+                if ("available".equalsIgnoreCase(status)) {
+                    count++;
+                }
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    /**
+     * Check if duplicate roll number exists
+     */
+    public boolean isDuplicateStudent(String rollNumber) {
+        return rollNumberExists(rollNumber);
+    }
+
+    /**
+     * Validate email format
+     */
+    public static boolean isValidEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        return email.matches(emailRegex);
+    }
+
+    /**
+     * Get all students (including wardens and allocated/unallocated)
+     */
+    public List<Map<String, String>> getAllStudents() {
+        List<Map<String, String>> students = new ArrayList<>();
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                System.out.println("Students file does not exist: " + studentsFile.getAbsolutePath());
+                return students;
+            }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                try {
+                    Map<String, String> studentData = parseStudentElement(student);
+                    if (studentData != null) {
+                        students.add(studentData);
+                    }
+                } catch (Exception e) {
+                    System.err.println("Error parsing student element " + i + ": " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error in getAllStudents: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return students;
     }
 }
 

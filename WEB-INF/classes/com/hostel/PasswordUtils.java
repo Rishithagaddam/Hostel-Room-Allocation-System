@@ -3,10 +3,12 @@ package com.hostel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordUtils {
     private static final String CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final Random RANDOM = new Random();
+    private static final int BCRYPT_LOG_ROUNDS = 10;
 
     /**
      * Generate a random password of 8 characters
@@ -20,9 +22,55 @@ public class PasswordUtils {
     }
 
     /**
-     * Hash a password using MD5
+     * Hash a password using BCrypt with salt
+     * This is the primary hashing method for all new passwords
      */
     public static String hashPassword(String password) {
+        try {
+            return BCrypt.hashpw(password, BCrypt.gensalt(BCRYPT_LOG_ROUNDS));
+        } catch (IllegalArgumentException e) {
+            // Fallback to MD5 if BCrypt fails (should not happen)
+            return hashPasswordMD5(password);
+        }
+    }
+
+    /**
+     * Verify a password against its hash
+     * Supports both BCrypt and legacy MD5 hashes
+     */
+    public static boolean verifyPassword(String password, String hash) {
+        if (hash == null || hash.isEmpty()) {
+            return false;
+        }
+
+        // Check if it's a BCrypt hash (starts with $2a$, $2b$, or $2y$)
+        if (isBCryptHash(hash)) {
+            try {
+                return BCrypt.checkpw(password, hash);
+            } catch (IllegalArgumentException e) {
+                return false;
+            }
+        }
+
+        // Fallback to legacy MD5 verification for backward compatibility
+        return verifyPasswordMD5(password, hash);
+    }
+
+    /**
+     * Check if a hash is in BCrypt format
+     */
+    public static boolean isBCryptHash(String hash) {
+        if (hash == null || hash.length() < 4) {
+            return false;
+        }
+        return hash.startsWith("$2a$") || hash.startsWith("$2b$") || hash.startsWith("$2y$");
+    }
+
+    /**
+     * Legacy MD5 hashing (for backward compatibility only)
+     * This method should only be used to verify existing MD5 hashes
+     */
+    private static String hashPasswordMD5(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(password.getBytes());
@@ -41,10 +89,10 @@ public class PasswordUtils {
     }
 
     /**
-     * Verify a password against its hash
+     * Legacy MD5 password verification (for backward compatibility only)
      */
-    public static boolean verifyPassword(String password, String hash) {
-        return hashPassword(password).equals(hash);
+    private static boolean verifyPasswordMD5(String password, String hash) {
+        return hashPasswordMD5(password).equals(hash);
     }
 
     /**

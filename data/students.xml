@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <students>
-                                    
+                                            
+    
+    
     
     
     
@@ -9,7 +11,9 @@
     
     
     <!-- Default Warden Account -->
-                                    
+                                            
+    
+    
     
     
     
@@ -18,7 +22,9 @@
     
     
     <!-- Username: warden, Password: warden123 (hashed) -->
-                                    
+                                            
+    
+    
     
     
     
@@ -27,7 +33,9 @@
     
     
     <student>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -36,7 +44,9 @@
         
         
         <student_id>W001</student_id>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -45,7 +55,9 @@
         
         
         <name>Hostel Warden</name>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -54,7 +66,9 @@
         
         
         <email>warden@hostel.edu</email>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -63,7 +77,9 @@
         
         
         <username>warden</username>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -72,7 +88,9 @@
         
         
         <password_hash>a6e4b408c8d87fa54412db5204fc4f7e</password_hash>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -81,7 +99,9 @@
         
         
         <role>warden</role>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -90,7 +110,9 @@
         
         
         <year>0</year>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -99,7 +121,9 @@
         
         
         <payment_status>completed</payment_status>
-                                                                        
+                                                                                        
+        
+        
         
         
         
@@ -108,7 +132,9 @@
         
         
         <registration_date>2026-01-01</registration_date>
-                                                                    
+                                                                                    
+    
+    
     
     
     
@@ -116,39 +142,105 @@
     
     
     </student>
+                                        
+    
+    
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+
+
+    
+    
+    
+    <student>
                                 
+        
+        
+        <student_id>S006</student_id>
+                                
+        
+        
+        <name>ayesha</name>
+                                
+        
+        
+        <email>rishithagaddam79@gmail.com</email>
+                                
+        
+        
+        <roll_number>23071A0579</roll_number>
+                                
+        
+        
+        <username>aye472</username>
+                                
+        
+        
+        <password_hash>f89e6fa2cb641cdd32a71cedab34d4fc</password_hash>
+                                
+        
+        
+        <role>student</role>
+                                
+        
+        
+        <year>3</year>
+                                
+        
+        
+        <payment_status>completed</payment_status>
+                                
+        
+        
+        <allocation_status>ALLOCATED</allocation_status>
+                                
+        
+        
+        <registration_date>2026-04-26</registration_date>
+                            
+        
+        
+        <allocated_block>A</allocated_block>
+                        
+        
+        <allocated_floor>3</allocated_floor>
+                        
+        
+        <allocated_room>3</allocated_room>
+                        
+        
+        <allocated_bed>1</allocated_bed>
+                    
     
-    
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-
+    </student>
+            
 
     
     <student>
                 
         <student_id>S006</student_id>
                 
-        <name>ayesha</name>
+        <name>Akshaya</name>
                 
-        <email>rishithagaddam79@gmail.com</email>
+        <email>akshayachigullapally1@gmail.com</email>
                 
-        <roll_number>23071A0579</roll_number>
+        <roll_number>23071A0504</roll_number>
                 
-        <username>aye472</username>
+        <username>aks266</username>
                 
-        <password_hash>f89e6fa2cb641cdd32a71cedab34d4fc</password_hash>
+        <password_hash>528128d7b88a9bb3ded5d9415c94cb6b</password_hash>
                 
         <role>student</role>
                 
@@ -161,9 +253,9 @@
         <registration_date>2026-04-26</registration_date>
             
         <allocated_block>A</allocated_block>
-        <allocated_floor>3</allocated_floor>
+        <allocated_floor>2</allocated_floor>
         <allocated_room>3</allocated_room>
-        <allocated_bed>1</allocated_bed>
+        <allocated_bed>2</allocated_bed>
     </student>
     
 </students>

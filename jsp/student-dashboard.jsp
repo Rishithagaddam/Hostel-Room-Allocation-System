@@ -24,7 +24,7 @@
             <h2>🏨 Hostel Portal - Student</h2>
             <div class="user-info">
                 <span>Welcome, <%= name %></span>
-                <a href="/hostel-allocation/jsp/login.jsp" class="btn btn-sm btn-secondary">Logout</a>
+                <a href="/hostel-allocation/logout" class="btn btn-sm btn-secondary">Logout</a>
             </div>
         </div>
     </div>

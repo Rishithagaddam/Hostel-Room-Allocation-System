@@ -98,6 +98,36 @@
         <url-pattern>/api/allocated-students</url-pattern>
     </servlet-mapping>
 
+    <!-- StudentManagementServlet -->
+    <servlet>
+        <servlet-name>StudentManagementServlet</servlet-name>
+        <servlet-class>com.hostel.StudentManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentManagementServlet</servlet-name>
+        <url-pattern>/api/student-management</url-pattern>
+    </servlet-mapping>
+
+    <!-- RoomServlet -->
+    <servlet>
+        <servlet-name>RoomServlet</servlet-name>
+        <servlet-class>com.hostel.RoomServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoomServlet</servlet-name>
+        <url-pattern>/api/rooms-vacancy</url-pattern>
+    </servlet-mapping>
+
+    <!-- LogoutServlet -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.hostel.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
     <!-- Session Configuration -->
     <session-config>
         <cookie-config>

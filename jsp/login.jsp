@@ -37,12 +37,6 @@
 
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
-
-            <div class="login-info">
-                <h3>Demo Credentials</h3>
-                <p><strong>Warden:</strong> username: <code>warden</code>, password: <code>warden123</code></p>
-                <p><small>Student credentials are generated after registration by the warden</small></p>
-            </div>
         </div>
     </div>
 </body>

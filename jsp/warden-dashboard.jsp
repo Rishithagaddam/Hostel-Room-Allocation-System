@@ -23,7 +23,9 @@
             <h2>🏨 Hostel Management System</h2>
             <div class="user-info">
                 <span>Welcome, <%= name %></span>
-                <a href="/hostel-allocation/jsp/login.jsp" class="btn btn-sm btn-secondary">Logout</a>
+                <a href="/hostel-allocation/jsp/student-management.jsp" class="btn btn-sm btn-secondary" style="background: #8B6FA0; margin-right: 10px;">👥 Students</a>
+                <a href="/hostel-allocation/jsp/room-view.jsp" class="btn btn-sm btn-secondary" style="background: #6C757D; margin-right: 10px;">🏢 Rooms</a>
+                <a href="/hostel-allocation/logout" class="btn btn-sm btn-secondary">Logout</a>
             </div>
         </div>
     </div>
