@@ -45,7 +45,47 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AllocationServlet</servlet-name>
-        <url-pattern>/allocate</url-pattern>
+        <url-pattern>/api/allocate-room</url-pattern>
+    </servlet-mapping>
+
+    <!-- DashboardStatsServlet -->
+    <servlet>
+        <servlet-name>DashboardStatsServlet</servlet-name>
+        <servlet-class>com.hostel.DashboardStatsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashboardStatsServlet</servlet-name>
+        <url-pattern>/api/dashboard-stats</url-pattern>
+    </servlet-mapping>
+
+    <!-- RegisteredStudentsServlet -->
+    <servlet>
+        <servlet-name>RegisteredStudentsServlet</servlet-name>
+        <servlet-class>com.hostel.RegisteredStudentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisteredStudentsServlet</servlet-name>
+        <url-pattern>/api/registered-students</url-pattern>
+    </servlet-mapping>
+
+    <!-- RoomsServlet -->
+    <servlet>
+        <servlet-name>RoomsServlet</servlet-name>
+        <servlet-class>com.hostel.RoomsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoomsServlet</servlet-name>
+        <url-pattern>/api/rooms</url-pattern>
+    </servlet-mapping>
+
+    <!-- AllocatedStudentsServlet -->
+    <servlet>
+        <servlet-name>AllocatedStudentsServlet</servlet-name>
+        <servlet-class>com.hostel.AllocatedStudentsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllocatedStudentsServlet</servlet-name>
+        <url-pattern>/api/allocated-students</url-pattern>
     </servlet-mapping>
 
     <!-- Session Configuration -->

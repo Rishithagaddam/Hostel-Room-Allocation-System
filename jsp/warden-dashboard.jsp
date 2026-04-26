@@ -89,20 +89,28 @@
         <!-- Dashboard Statistics -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value"><%= request.getAttribute("total_beds") != null ? request.getAttribute("total_beds") : "0" %></div>
+                <div class="stat-value" id="total-students">0</div>
+                <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #007BFF;" id="registered-students">0</div>
+                <div class="stat-label">Registered Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: #28A745;" id="allocated-students">0</div>
+                <div class="stat-label">Allocated Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-beds">0</div>
                 <div class="stat-label">Total Beds</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value" style="color: #DC3545;"><%= request.getAttribute("occupied_beds") != null ? request.getAttribute("occupied_beds") : "0" %></div>
-                <div class="stat-label">Occupied Beds</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value" style="color: #28A745;"><%= request.getAttribute("available_beds") != null ? request.getAttribute("available_beds") : "0" %></div>
+                <div class="stat-value" style="color: #28A745;" id="available-beds">0</div>
                 <div class="stat-label">Available Beds</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value"><%= request.getAttribute("total_students") != null ? request.getAttribute("total_students") : "0" %></div>
-                <div class="stat-label">Total Students</div>
+                <div class="stat-value" style="color: #DC3545;" id="occupied-beds">0</div>
+                <div class="stat-label">Occupied Beds</div>
             </div>
         </div>
 
@@ -110,13 +118,9 @@
         <div class="occupancy-section">
             <h3>Overall Occupancy</h3>
             <div class="occupancy-bar">
-                <%
-                    String occupancyStr = (String) request.getAttribute("occupancy_percentage");
-                    double occupancy = occupancyStr != null ? Double.parseDouble(occupancyStr) : 0.0;
-                %>
-                <div class="occupancy-fill" style="width: <%= occupancy %>%;"></div>
+                <div class="occupancy-fill" style="width: 0%;"></div>
             </div>
-            <p class="occupancy-text"><%= String.format("%.1f%%", occupancy) %> Occupied</p>
+            <p class="occupancy-text">0% Occupied</p>
         </div>
 
         <div class="dashboard-content">

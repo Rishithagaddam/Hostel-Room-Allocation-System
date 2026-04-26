@@ -111,7 +111,43 @@
             </div>
         </div>
 
-        <!-- Allocation is now handled via AJAX, no form needed -->
+        <!-- Allocation Form -->
+        <form id="allocation-form" method="POST" action="/hostel-allocation/allocate" style="display: none;">
+            <input type="hidden" name="action" value="allocate_bed">
+            <input type="hidden" id="selected-student" name="student_id" value="">
+            <input type="hidden" id="selected-block" name="block_id" value="">
+            <input type="hidden" id="selected-floor" name="floor_id" value="">
+            <input type="hidden" id="selected-room" name="room_id" value="">
+            <input type="hidden" id="selected-bed" name="bed_id" value="">
+
+            <div class="allocation-summary" id="allocation-summary" style="display: none;">
+                <h3>📋 Allocation Summary</h3>
+                <div class="summary-item">
+                    <strong>Student:</strong> <span id="summary-student">-</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Block:</strong> <span id="summary-block">-</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Floor:</strong> <span id="summary-floor">-</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Room:</strong> <span id="summary-room">-</span>
+                </div>
+                <div class="summary-item">
+                    <strong>Bed:</strong> <span id="summary-bed">-</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <button type="submit" class="btn btn-primary" onclick="return confirmAllocation()">
+                    ✓ Confirm Allocation
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="resetAllocation()" style="margin-left: 10px;">
+                    ✕ Cancel
+                </button>
+            </div>
+        </form>
     </div>
 
     <script src="/hostel-allocation/js/app.js"></script>

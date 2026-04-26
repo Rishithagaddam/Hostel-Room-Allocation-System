@@ -1,5 +1,8 @@
 package com.hostel;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
@@ -7,15 +10,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
 public class XMLManager {
     private static final String DATA_DIR = "data/";
-    private static final String STUDENTS_FILE = "students.xml";
-    private static final String ROOMS_FILE = "rooms.xml";
-    private static final String ALLOCATIONS_FILE = "allocations.xml";
+    private static final String HOSTEL_FILE = "hostel.xml";
 
     private DocumentBuilder documentBuilder;
     private String baseDir;
@@ -31,10 +28,134 @@ public class XMLManager {
     }
 
     /**
-     * Get the full path to a data file
+     * Get the full path to the data file
      */
-    private String getFilePath(String filename) {
-        return baseDir + File.separator + DATA_DIR + filename;
+    private String getFilePath() {
+        return baseDir + File.separator + DATA_DIR + HOSTEL_FILE;
+    }
+
+    /**
+     * Initialize rooms if missing
+     */
+    public void initializeRoomsIfMissing() {
+        File file = new File(getFilePath());
+        if (!file.exists()) {
+            createInitialHostelStructure();
+        } else {
+            // Check if rooms exist
+            try {
+                Document doc = documentBuilder.parse(file);
+                NodeList rooms = doc.getElementsByTagName("rooms");
+                if (rooms.getLength() == 0) {
+                    addRoomsToExistingFile();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+        }
+        }
+    }
+
+    /**
+     * Create initial hostel XML structure
+     */
+    private void createInitialHostelStructure() {
+        try {
+            Document doc = documentBuilder.newDocument();
+            Element hostel = doc.createElement("hostel");
+            doc.appendChild(hostel);
+
+            // Create students section
+            Element students = doc.createElement("students");
+            hostel.appendChild(students);
+
+            // Create rooms section
+            Element rooms = doc.createElement("rooms");
+            hostel.appendChild(rooms);
+
+            // Add blocks A, B, C, D
+            String[] blocks = {"A", "B", "C", "D"};
+            for (String blockName : blocks) {
+                Element block = doc.createElement("block");
+                block.setAttribute("name", blockName);
+                rooms.appendChild(block);
+
+                // Add 4 floors per block
+                for (int floor = 1; floor <= 4; floor++) {
+                    Element floorElem = doc.createElement("floor");
+                    floorElem.setAttribute("number", String.valueOf(floor));
+                    block.appendChild(floorElem);
+
+                    // Add 5 rooms per floor
+                    for (int room = 1; room <= 5; room++) {
+                        Element roomElem = doc.createElement("room");
+                        roomElem.setAttribute("number", String.valueOf(room));
+                        floorElem.appendChild(roomElem);
+
+                        // Add 3 beds per room
+                        for (int bed = 1; bed <= 3; bed++) {
+                            Element bedElem = doc.createElement("bed");
+                            bedElem.setAttribute("number", String.valueOf(bed));
+                            bedElem.setAttribute("status", "available");
+                            bedElem.setAttribute("rollNo", "");
+                            roomElem.appendChild(bedElem);
+                        }
+                    }
+                }
+        }
+
+            saveDocument(doc, getFilePath());
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Add rooms to existing file
+     */
+    private void addRoomsToExistingFile() {
+        try {
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            Element hostel = doc.getDocumentElement();
+
+            // Create rooms section
+            Element rooms = doc.createElement("rooms");
+            hostel.appendChild(rooms);
+
+            // Add blocks A, B, C, D
+            String[] blocks = {"A", "B", "C", "D"};
+            for (String blockName : blocks) {
+                Element block = doc.createElement("block");
+                block.setAttribute("name", blockName);
+                rooms.appendChild(block);
+
+                // Add 4 floors per block
+                for (int floor = 1; floor <= 4; floor++) {
+                    Element floorElem = doc.createElement("floor");
+                    floorElem.setAttribute("number", String.valueOf(floor));
+                    block.appendChild(floorElem);
+
+                    // Add 5 rooms per floor
+                    for (int room = 1; room <= 5; room++) {
+                        Element roomElem = doc.createElement("room");
+                        roomElem.setAttribute("number", String.valueOf(room));
+                        floorElem.appendChild(roomElem);
+
+                        // Add 3 beds per room
+                        for (int bed = 1; bed <= 3; bed++) {
+                            Element bedElem = doc.createElement("bed");
+                            bedElem.setAttribute("number", String.valueOf(bed));
+                            bedElem.setAttribute("status", "available");
+                            bedElem.setAttribute("rollNo", "");
+                            roomElem.appendChild(bedElem);
+                        }
+                    }
+                }
+        }
+
+            saveDocument(doc, getFilePath());
+        catch (IOException | SAXException | TransformerException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -42,16 +163,19 @@ public class XMLManager {
      */
     public Map<String, String> getStudentByUsername(String username) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            Document doc = documentBuilder.parse(new File(getFilePath()));
             NodeList students = doc.getElementsByTagName("student");
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                String usernameNode = student.getElementsByTagName("username").item(0).getTextContent();
-                if (usernameNode.equals(username)) {
-                    return parseStudentElement(student);
+                NodeList usernameNodes = student.getElementsByTagName("username");
+                if (usernameNodes.getLength() > 0) {
+                    String usernameNode = usernameNodes.item(0).getTextContent();
+                    if (usernameNode.equals(username)) {
+                        return parseStudentElement(student);
+                    }
                 }
-            }
+        }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -59,20 +183,25 @@ public class XMLManager {
     }
 
     /**
-     * Get student by ID
+     * Get student by roll number
      */
-    public Map<String, String> getStudentById(String studentId) {
+    public Map<String, String> getStudentByRollNo(String rollNo) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return null;
+        }
+
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList students = doc.getElementsByTagName("student");
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                String idNode = student.getElementsByTagName("student_id").item(0).getTextContent();
-                if (idNode.equals(studentId)) {
+                String roll = getElementValue(student, "roll_number");
+                if (roll != null && roll.equals(rollNo)) {
                     return parseStudentElement(student);
                 }
-            }
+        }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -84,19 +213,21 @@ public class XMLManager {
      */
     public boolean rollNumberExists(String rollNumber) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return false;
+        }
+
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList students = doc.getElementsByTagName("student");
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                NodeList rollNodes = student.getElementsByTagName("roll_number");
-                if (rollNodes.getLength() > 0) {
-                    String roll = rollNodes.item(0).getTextContent();
-                    if (roll.equals(rollNumber)) {
-                        return true;
-                    }
+                String roll = getElementValue(student, "roll_number");
+                if (roll != null && roll.equals(rollNumber)) {
+                    return true;
                 }
-            }
+        }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -108,8 +239,19 @@ public class XMLManager {
      */
     public boolean addStudent(String name, String year, String email, String rollNumber, String username, String passwordHash) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
-            Element root = doc.getDocumentElement();
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+
+            Document doc;
+            Element students;
+
+            if (studentsFile.exists()) {
+                doc = documentBuilder.parse(studentsFile);
+                students = doc.getDocumentElement();
+            } else {
+                doc = documentBuilder.newDocument();
+                students = doc.createElement("students");
+                doc.appendChild(students);
+        }
 
             // Generate student ID
             String studentId = "S" + String.format("%03d", getNextStudentNumber());
@@ -129,10 +271,10 @@ public class XMLManager {
             addElement(doc, student, "allocation_status", "UNALLOCATED");
             addElement(doc, student, "registration_date", getCurrentDate());
 
-            root.appendChild(student);
-            saveDocument(doc, getFilePath(STUDENTS_FILE));
+            students.appendChild(student);
+            saveDocument(doc, studentsFile.getAbsolutePath());
             return true;
-        } catch (IOException | SAXException | TransformerException e) {
+        catch (IOException | SAXException | TransformerException e) {
             e.printStackTrace();
         }
         return false;
@@ -144,28 +286,28 @@ public class XMLManager {
     public List<Map<String, String>> getAvailableBedsForYear(String year) {
         List<Map<String, String>> beds = new ArrayList<>();
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(ROOMS_FILE)));
+            Document doc = documentBuilder.parse(new File(baseDir + File.separator + DATA_DIR + "rooms.xml"));
             NodeList blockList = doc.getElementsByTagName("block");
 
             for (int i = 0; i < blockList.getLength(); i++) {
                 Element block = (Element) blockList.item(i);
-                String blockId = block.getElementsByTagName("block_id").item(0).getTextContent();
+                String blockId = getElementValue(block, "block_id");
 
                 NodeList floorList = block.getElementsByTagName("floor");
                 for (int j = 0; j < floorList.getLength(); j++) {
                     Element floor = (Element) floorList.item(j);
-                    String floorId = floor.getElementsByTagName("floor_id").item(0).getTextContent();
+                    String floorId = getElementValue(floor, "floor_number");
 
                     NodeList roomList = floor.getElementsByTagName("room");
                     for (int k = 0; k < roomList.getLength(); k++) {
                         Element room = (Element) roomList.item(k);
-                        String roomId = room.getElementsByTagName("room_id").item(0).getTextContent();
+                        String roomId = getElementValue(room, "room_number");
 
                         NodeList bedList = room.getElementsByTagName("bed");
                         for (int l = 0; l < bedList.getLength(); l++) {
                             Element bed = (Element) bedList.item(l);
-                            String bedId = bed.getElementsByTagName("bed_id").item(0).getTextContent();
-                            String status = bed.getElementsByTagName("status").item(0).getTextContent();
+                            String bedId = getElementValue(bed, "bed_number");
+                            String status = getElementValue(bed, "status");
 
                             if ("AVAILABLE".equals(status)) {
                                 Map<String, String> bedInfo = new HashMap<>();
@@ -178,72 +320,20 @@ public class XMLManager {
                         }
                     }
                 }
-            }
+        }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
         return beds;
     }
 
-    /**
-     * Get room information by ID
-     */
-    public Map<String, String> getRoomById(String roomId) {
-        try {
-            Document doc = documentBuilder.parse(new File(getFilePath(ROOMS_FILE)));
-            NodeList rooms = doc.getElementsByTagName("room");
 
-            for (int i = 0; i < rooms.getLength(); i++) {
-                Element room = (Element) rooms.item(i);
-                String rid = room.getElementsByTagName("room_id").item(0).getTextContent();
-                if (rid.equals(roomId)) {
-                    return parseRoomElement(room);
-                }
-            }
-        } catch (IOException | SAXException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     /**
-     * Allocate a bed to a student
+     * Allocate a bed to a student (legacy method)
      */
     public boolean allocateBed(String studentId, String roomId, String bedId) {
-        try {
-            // Update allocations.xml
-            Document allocDoc = documentBuilder.parse(new File(getFilePath(ALLOCATIONS_FILE)));
-            Element allocRoot = allocDoc.getDocumentElement();
-
-            String allocationId = "ALLOC" + String.format("%05d", getNextAllocationNumber());
-            Element allocation = allocDoc.createElement("allocation");
-
-            addElement(allocDoc, allocation, "allocation_id", allocationId);
-            addElement(allocDoc, allocation, "student_id", studentId);
-            addElement(allocDoc, allocation, "room_id", roomId);
-            addElement(allocDoc, allocation, "bed_id", bedId);
-            addElement(allocDoc, allocation, "allocation_date", getCurrentDate());
-            addElement(allocDoc, allocation, "status", "ACTIVE");
-
-            allocRoot.appendChild(allocation);
-            saveDocument(allocDoc, getFilePath(ALLOCATIONS_FILE));
-
-            // Update bed status in rooms.xml
-            Document roomDoc = documentBuilder.parse(new File(getFilePath(ROOMS_FILE)));
-            NodeList beds = roomDoc.getElementsByTagName("bed");
-
-            for (int i = 0; i < beds.getLength(); i++) {
-                Element bed = (Element) beds.item(i);
-                String bid = bed.getElementsByTagName("bed_id").item(0).getTextContent();
-                if (bid.equals(bedId)) {
-                    bed.getElementsByTagName("status").item(0).setTextContent("OCCUPIED");
-                    saveDocument(roomDoc, getFilePath(ROOMS_FILE));
-                    return true;
-                }
-            }
-        } catch (IOException | SAXException | TransformerException e) {
-            e.printStackTrace();
-        }
+        // This method is deprecated, use allocateRoom instead
         return false;
     }
 
@@ -252,23 +342,52 @@ public class XMLManager {
      */
     public Map<String, String> getAllocationByStudentId(String studentId) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(ALLOCATIONS_FILE)));
-            NodeList allocations = doc.getElementsByTagName("allocation");
+            Document doc = documentBuilder.parse(new File(getFilePath()));
+            NodeList students = doc.getElementsByTagName("student");
 
-            for (int i = 0; i < allocations.getLength(); i++) {
-                Element allocation = (Element) allocations.item(i);
-                String sid = allocation.getElementsByTagName("student_id").item(0).getTextContent();
-                if (sid.equals(studentId)) {
-                    Map<String, String> alloc = new HashMap<>();
-                    alloc.put("allocation_id", allocation.getElementsByTagName("allocation_id").item(0).getTextContent());
-                    alloc.put("student_id", sid);
-                    alloc.put("room_id", allocation.getElementsByTagName("room_id").item(0).getTextContent());
-                    alloc.put("bed_id", allocation.getElementsByTagName("bed_id").item(0).getTextContent());
-                    alloc.put("allocation_date", allocation.getElementsByTagName("allocation_date").item(0).getTextContent());
-                    alloc.put("status", allocation.getElementsByTagName("status").item(0).getTextContent());
-                    return alloc;
+            for (int i = 0; i < students.getLength(); i++) {
+                Element student = (Element) students.item(i);
+                String sid = getElementValue(student, "student_id");
+                if (sid != null && sid.equals(studentId)) {
+                    String block = getElementValue(student, "block");
+                    String floor = getElementValue(student, "floor");
+                    String room = getElementValue(student, "room");
+                    String bed = getElementValue(student, "bed");
+                    String status = getElementValue(student, "status");
+
+                    if (block != null && "allocated".equals(status)) {
+                        Map<String, String> alloc = new HashMap<>();
+                        alloc.put("student_id", sid);
+                        alloc.put("block", block);
+                        alloc.put("floor", floor);
+                        alloc.put("room", room);
+                        alloc.put("bed", bed);
+                        alloc.put("status", status);
+                        return alloc;
+                    }
                 }
-            }
+        }
+        } catch (IOException | SAXException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Get room information by ID
+     */
+    public Map<String, String> getRoomById(String roomId) {
+        try {
+            Document doc = documentBuilder.parse(new File(baseDir + File.separator + DATA_DIR + "rooms.xml"));
+            NodeList rooms = doc.getElementsByTagName("room");
+
+            for (int i = 0; i < rooms.getLength(); i++) {
+                Element room = (Element) rooms.item(i);
+                String rid = getElementValue(room, "room_number");
+                if (rid.equals(roomId)) {
+                    return parseRoomElement(room);
+                }
+        }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -281,45 +400,17 @@ public class XMLManager {
     public List<Map<String, String>> getStudentsByYear(String year) {
         List<Map<String, String>> students = new ArrayList<>();
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            Document doc = documentBuilder.parse(new File(getFilePath()));
             NodeList studentList = doc.getElementsByTagName("student");
 
             for (int i = 0; i < studentList.getLength(); i++) {
                 Element student = (Element) studentList.item(i);
-                String studentYear = student.getElementsByTagName("year").item(0).getTextContent();
-                if (studentYear.equals(year) && !"warden".equals(student.getElementsByTagName("role").item(0).getTextContent())) {
+                String studentYear = getElementValue(student, "year");
+                String role = getElementValue(student, "role");
+                if (studentYear.equals(year) && !"warden".equals(role)) {
                     students.add(parseStudentElement(student));
                 }
-            }
-        } catch (IOException | SAXException e) {
-            e.printStackTrace();
         }
-        return students;
-    }
-
-    /**
-     * Get all registered (unallocated) students
-     */
-    public List<Map<String, String>> getRegisteredStudents() {
-        List<Map<String, String>> students = new ArrayList<>();
-        try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
-            NodeList studentList = doc.getElementsByTagName("student");
-
-            for (int i = 0; i < studentList.getLength(); i++) {
-                Element student = (Element) studentList.item(i);
-                String role = student.getElementsByTagName("role").item(0).getTextContent();
-                if (!"warden".equals(role)) {
-                    NodeList statusNodes = student.getElementsByTagName("allocation_status");
-                    String status = "UNALLOCATED";
-                    if (statusNodes.getLength() > 0) {
-                        status = statusNodes.item(0).getTextContent();
-                    }
-                    if ("UNALLOCATED".equals(status)) {
-                        students.add(parseStudentElement(student));
-                    }
-                }
-            }
         } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
@@ -339,23 +430,33 @@ public class XMLManager {
     public List<Map<String, String>> getAllocatedStudents() {
         List<Map<String, String>> students = new ArrayList<>();
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return students;
+        }
+
+            Document doc = documentBuilder.parse(studentsFile);
             NodeList studentList = doc.getElementsByTagName("student");
 
             for (int i = 0; i < studentList.getLength(); i++) {
                 Element student = (Element) studentList.item(i);
-                String role = student.getElementsByTagName("role").item(0).getTextContent();
-                if (!"warden".equals(role)) {
-                    NodeList statusNodes = student.getElementsByTagName("allocation_status");
-                    if (statusNodes.getLength() > 0) {
-                        String status = statusNodes.item(0).getTextContent();
-                        if ("ALLOCATED".equals(status)) {
-                            students.add(parseStudentElement(student));
-                        }
-                    }
+                String allocationStatus = getElementValue(student, "allocation_status");
+
+                if ("ALLOCATED".equals(allocationStatus)) {
+                    Map<String, String> data = new HashMap<>();
+                    data.put("studentId", getElementValue(student, "student_id"));
+                    data.put("name", getElementValue(student, "name"));
+                    data.put("rollNumber", getElementValue(student, "roll_number"));
+                    data.put("year", getElementValue(student, "year"));
+                    data.put("email", getElementValue(student, "email"));
+                    data.put("block", getElementValue(student, "allocated_block"));
+                    data.put("floor", getElementValue(student, "allocated_floor"));
+                    data.put("roomNo", getElementValue(student, "allocated_room"));
+                    data.put("bedNo", getElementValue(student, "allocated_bed"));
+                    students.add(data);
                 }
-            }
-        } catch (IOException | SAXException e) {
+        }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return students;
@@ -366,214 +467,145 @@ public class XMLManager {
      */
     public boolean updateAllocationStatus(String studentId, String status) {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            Document doc = documentBuilder.parse(new File(getFilePath()));
             NodeList students = doc.getElementsByTagName("student");
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                String sid = student.getElementsByTagName("student_id").item(0).getTextContent();
+                String sid = getElementValue(student, "student_id");
                 if (sid.equals(studentId)) {
-                    NodeList statusNodes = student.getElementsByTagName("allocation_status");
+                    NodeList statusNodes = student.getElementsByTagName("status");
                     if (statusNodes.getLength() > 0) {
                         statusNodes.item(0).setTextContent(status);
                     } else {
-                        addElement(doc, student, "allocation_status", status);
+                        addElement(doc, student, "status", status);
                     }
-                    saveDocument(doc, getFilePath(STUDENTS_FILE));
+                    saveDocument(doc, getFilePath());
                     return true;
                 }
-            }
-        } catch (IOException | SAXException | TransformerException e) {
+        }
+        catch (IOException | SAXException | TransformerException e) {
             e.printStackTrace();
         }
         return false;
     }
 
-    /**
-     * Get rooms for a specific block and floor
-     */
-    public List<Map<String, Object>> getRoomsByBlockAndFloor(String block, String floor) {
-        List<Map<String, Object>> rooms = new ArrayList<>();
-        try {
-            Document doc = documentBuilder.parse(new File(getFilePath(ROOMS_FILE)));
-            NodeList blockList = doc.getElementsByTagName("block");
 
+
+    /**
+     * Allocate bed to student - updates hostel.xml bed status
+     */
+    public boolean allocateRoom(String rollNumber, String block, String floor, String roomNo, String bedNo) {
+        try {
+            File roomsFile = new File(baseDir + File.separator + DATA_DIR + "rooms.xml");
+            Document doc = documentBuilder.parse(roomsFile);
+
+            // Find and update the bed
+            NodeList blockList = doc.getElementsByTagName("block");
             for (int i = 0; i < blockList.getLength(); i++) {
                 Element blockElem = (Element) blockList.item(i);
-                String blockId = blockElem.getElementsByTagName("block_id").item(0).getTextContent();
-
-                if (!blockId.equals(block)) continue;
+                String blockName = getElementValue(blockElem, "block_id");
+                if (!blockName.equals(block)) continue;
 
                 NodeList floorList = blockElem.getElementsByTagName("floor");
                 for (int j = 0; j < floorList.getLength(); j++) {
                     Element floorElem = (Element) floorList.item(j);
-                    String floorNum = floorElem.getElementsByTagName("floor_number").item(0).getTextContent();
-
+                    String floorNum = getElementValue(floorElem, "floor_number");
                     if (!floorNum.equals(floor)) continue;
 
                     NodeList roomList = floorElem.getElementsByTagName("room");
                     for (int k = 0; k < roomList.getLength(); k++) {
                         Element room = (Element) roomList.item(k);
-                        Map<String, Object> roomData = new HashMap<>();
-                        roomData.put("room_id", room.getElementsByTagName("room_id").item(0).getTextContent());
-                        roomData.put("room_number", room.getElementsByTagName("room_number").item(0).getTextContent());
+                        String rNo = getElementValue(room, "room_number");
+                        if (!rNo.equals(roomNo)) continue;
 
-                        // Get beds for this room
                         NodeList beds = room.getElementsByTagName("bed");
-                        List<Map<String, String>> bedList = new ArrayList<>();
                         for (int l = 0; l < beds.getLength(); l++) {
                             Element bed = (Element) beds.item(l);
-                            Map<String, String> bedData = new HashMap<>();
-                            bedData.put("bed_id", bed.getElementsByTagName("bed_id").item(0).getTextContent());
-                            bedData.put("bed_number", bed.getElementsByTagName("bed_number").item(0).getTextContent());
-                            bedData.put("status", bed.getElementsByTagName("status").item(0).getTextContent());
-
-                            NodeList rollNoNodes = bed.getElementsByTagName("roll_no");
-                            if (rollNoNodes.getLength() > 0) {
-                                bedData.put("roll_no", rollNoNodes.item(0).getTextContent());
-                            } else {
-                                bedData.put("roll_no", "");
+                            String bNo = getElementValue(bed, "bed_number");
+                            String rollNo = getElementValue(bed, "rollNo");
+                            if (bNo.equals(bedNo) && (rollNo == null || rollNo.trim().isEmpty())) {
+                                // Update status element
+                                NodeList statusNodes = bed.getElementsByTagName("status");
+                                if (statusNodes.getLength() > 0) {
+                                    statusNodes.item(0).setTextContent("OCCUPIED");
+                                }
+                                // Add rollNo element
+                                addElement(doc, bed, "rollNo", rollNumber);
+                                saveDocument(doc, roomsFile.getAbsolutePath());
+                                return true;
                             }
-
-                            bedList.add(bedData);
                         }
-                        roomData.put("beds", bedList);
-                        rooms.add(roomData);
                     }
-                }
-            }
-        } catch (IOException | SAXException e) {
-            e.printStackTrace();
         }
-        return rooms;
-    }
-
-    /**
-     * Allocate bed to student - updates both beds and students
-     */
-    public boolean allocateBedToStudent(String studentId, String bedId, String rollNo, String block, String floor, String room) {
-        try {
-            // Update bed status and add roll number
-            Document roomDoc = documentBuilder.parse(new File(getFilePath(ROOMS_FILE)));
-            NodeList beds = roomDoc.getElementsByTagName("bed");
-            boolean bedFound = false;
-
-            for (int i = 0; i < beds.getLength(); i++) {
-                Element bed = (Element) beds.item(i);
-                String bid = bed.getElementsByTagName("bed_id").item(0).getTextContent();
-                if (bid.equals(bedId)) {
-                    bed.getElementsByTagName("status").item(0).setTextContent("OCCUPIED");
-
-                    // Update or add roll_no
-                    NodeList rollNoNodes = bed.getElementsByTagName("roll_no");
-                    if (rollNoNodes.getLength() > 0) {
-                        rollNoNodes.item(0).setTextContent(rollNo);
-                    } else {
-                        addElement(roomDoc, bed, "roll_no", rollNo);
-                    }
-
-                    saveDocument(roomDoc, getFilePath(ROOMS_FILE));
-                    bedFound = true;
-                    break;
-                }
-            }
-
-            if (!bedFound) {
-                return false;
-            }
-
-            // Update allocation record
-            Document allocDoc = documentBuilder.parse(new File(getFilePath(ALLOCATIONS_FILE)));
-            Element allocRoot = allocDoc.getDocumentElement();
-
-            String allocationId = "ALLOC" + String.format("%05d", getNextAllocationNumber());
-            Element allocation = allocDoc.createElement("allocation");
-
-            addElement(allocDoc, allocation, "allocation_id", allocationId);
-            addElement(allocDoc, allocation, "student_id", studentId);
-            addElement(allocDoc, allocation, "roll_no", rollNo);
-            addElement(allocDoc, allocation, "room_id", room);
-            addElement(allocDoc, allocation, "bed_id", bedId);
-            addElement(allocDoc, allocation, "block", block);
-            addElement(allocDoc, allocation, "floor", floor);
-            addElement(allocDoc, allocation, "allocation_date", getCurrentDate());
-            addElement(allocDoc, allocation, "status", "ACTIVE");
-
-            allocRoot.appendChild(allocation);
-            saveDocument(allocDoc, getFilePath(ALLOCATIONS_FILE));
-
-            // Update student allocation status
-            updateAllocationStatus(studentId, "ALLOCATED");
-
-            return true;
-        } catch (IOException | SAXException | TransformerException e) {
+        catch (IOException | SAXException | TransformerException e) {
             e.printStackTrace();
         }
         return false;
     }
+    }
+    // Dashboard stats
     public Map<String, Integer> getDashboardStats() {
         Map<String, Integer> stats = new HashMap<>();
-        stats.put("total_beds", 0);
-        stats.put("occupied_beds", 0);
-        stats.put("available_beds", 0);
-        stats.put("total_students", 0);
+        stats.put("totalBeds", 240);
+        stats.put("occupiedBeds", 0);
+        stats.put("availableBeds", 240);
+        stats.put("totalStudents", 0);
+        stats.put("unallocatedStudents", 0);
+        stats.put("allocatedStudents", 0);
 
         try {
             // Count beds from rooms.xml
-            File roomsFile = new File(getFilePath(ROOMS_FILE));
-            if (roomsFile.exists()) {
-                Document doc = documentBuilder.parse(roomsFile);
-                NodeList beds = doc.getElementsByTagName("bed");
+            Document hostelDoc = documentBuilder.parse(new File(baseDir + File.separator + DATA_DIR + "rooms.xml"));
+            NodeList beds = hostelDoc.getElementsByTagName("bed");
+            int totalBeds = beds.getLength();
+            int occupiedBeds = 0;
+            int availableBeds = 0;
 
-                int totalBeds = beds.getLength();
-                int occupiedBeds = 0;
-                int availableBeds = 0;
-
-                for (int i = 0; i < totalBeds; i++) {
-                    Element bed = (Element) beds.item(i);
-                    NodeList statusNodes = bed.getElementsByTagName("status");
-                    if (statusNodes.getLength() > 0) {
-                        String status = statusNodes.item(0).getTextContent();
-                        if ("OCCUPIED".equals(status)) {
-                            occupiedBeds++;
-                        } else {
-                            availableBeds++;
-                        }
-                    } else {
-                        availableBeds++;
-                    }
+            for (int i = 0; i < totalBeds; i++) {
+                Element bed = (Element) beds.item(i);
+                String rollNo = getElementValue(bed, "rollNo");
+                String status = (rollNo != null && !rollNo.trim().isEmpty()) ? "occupied" : "available";
+                if ("occupied".equalsIgnoreCase(status)) {
+                    occupiedBeds++;
+                } else {
+                    availableBeds++;
                 }
+        }
 
-                stats.put("total_beds", totalBeds);
-                stats.put("occupied_beds", occupiedBeds);
-                stats.put("available_beds", availableBeds);
-
-                System.out.println("Dashboard Stats: Total=" + totalBeds + ", Occupied=" + occupiedBeds + ", Available=" + availableBeds);
-            }
+            stats.put("totalBeds", totalBeds);
+            stats.put("occupiedBeds", occupiedBeds);
+            stats.put("availableBeds", availableBeds);
 
             // Count students from students.xml
-            File studentsFile = new File(getFilePath(STUDENTS_FILE));
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
             if (studentsFile.exists()) {
-                Document studentDoc = documentBuilder.parse(studentsFile);
-                NodeList students = studentDoc.getElementsByTagName("student");
-                int studentCount = 0;
+                Document studentsDoc = documentBuilder.parse(studentsFile);
+                NodeList students = studentsDoc.getElementsByTagName("student");
+
+                int totalStudents = 0;
+                int unallocatedStudents = 0;
+                int allocatedStudents = 0;
 
                 for (int i = 0; i < students.getLength(); i++) {
                     Element student = (Element) students.item(i);
-                    NodeList roleNodes = student.getElementsByTagName("role");
-                    if (roleNodes.getLength() > 0) {
-                        String role = roleNodes.item(0).getTextContent();
-                        if (!"warden".equals(role)) {
-                            studentCount++;
+                    String role = getElementValue(student, "role");
+                    if (!"warden".equals(role)) {
+                        totalStudents++;
+                        String allocationStatus = getElementValue(student, "allocation_status");
+                        if ("ALLOCATED".equals(allocationStatus)) {
+                            allocatedStudents++;
+                        } else {
+                            unallocatedStudents++;
                         }
                     }
                 }
 
-                stats.put("total_students", studentCount);
-                System.out.println("Total Students: " + studentCount);
-            }
-        } catch (IOException | SAXException e) {
-            System.err.println("Error getting dashboard stats: " + e.getMessage());
+                stats.put("totalStudents", totalStudents);
+                stats.put("unallocatedStudents", unallocatedStudents);
+                stats.put("allocatedStudents", allocatedStudents);
+        }
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -584,36 +616,46 @@ public class XMLManager {
 
     private Map<String, String> parseStudentElement(Element student) {
         Map<String, String> data = new HashMap<>();
-        data.put("student_id", student.getElementsByTagName("student_id").item(0).getTextContent());
-        data.put("name", student.getElementsByTagName("name").item(0).getTextContent());
-        data.put("email", student.getElementsByTagName("email").item(0).getTextContent());
-        data.put("username", student.getElementsByTagName("username").item(0).getTextContent());
-        data.put("password_hash", student.getElementsByTagName("password_hash").item(0).getTextContent());
-        data.put("role", student.getElementsByTagName("role").item(0).getTextContent());
-        data.put("year", student.getElementsByTagName("year").item(0).getTextContent());
-        data.put("payment_status", student.getElementsByTagName("payment_status").item(0).getTextContent());
-        data.put("registration_date", student.getElementsByTagName("registration_date").item(0).getTextContent());
+        data.put("student_id", getElementValue(student, "student_id"));
+        data.put("name", getElementValue(student, "name"));
+        data.put("email", getElementValue(student, "email"));
+        data.put("rollNumber", getElementValue(student, "roll_number"));
+        data.put("username", getElementValue(student, "username"));
+        data.put("password_hash", getElementValue(student, "password_hash"));
+        data.put("role", getElementValue(student, "role"));
+        data.put("year", getElementValue(student, "year"));
+        data.put("payment_status", getElementValue(student, "payment_status"));
+        data.put("status", getElementValue(student, "status"));
+        data.put("allocation_status", getElementValue(student, "allocation_status"));
+        data.put("registration_date", getElementValue(student, "registration_date"));
 
-        // Add roll_number if it exists
-        NodeList rollNodes = student.getElementsByTagName("roll_number");
-        if (rollNodes.getLength() > 0) {
-            data.put("roll_number", rollNodes.item(0).getTextContent());
-        }
-
-        // Add allocation_status if it exists
-        NodeList allocNodes = student.getElementsByTagName("allocation_status");
-        if (allocNodes.getLength() > 0) {
-            data.put("allocation_status", allocNodes.item(0).getTextContent());
-        }
+        // Add allocation details if present
+        String block = getElementValue(student, "block");
+        if (block != null) data.put("block", block);
+        String floor = getElementValue(student, "floor");
+        if (floor != null) data.put("floor", floor);
+        String room = getElementValue(student, "room");
+        if (room != null) data.put("room", room);
+        String bed = getElementValue(student, "bed");
+        if (bed != null) data.put("bed", bed);
 
         return data;
     }
 
+    private String getElementValue(Element parent, String tagName) {
+        NodeList nodes = parent.getElementsByTagName(tagName);
+        if (nodes.getLength() > 0) {
+            return nodes.item(0).getTextContent();
+        }
+        return null;
+    }
+
     private Map<String, String> parseRoomElement(Element room) {
         Map<String, String> data = new HashMap<>();
-        data.put("room_id", room.getElementsByTagName("room_id").item(0).getTextContent());
-        data.put("room_number", room.getElementsByTagName("room_number").item(0).getTextContent());
-        data.put("room_image", room.getElementsByTagName("room_image").item(0).getTextContent());
+        String roomNumber = getElementValue(room, "room_number");
+        data.put("room_id", roomNumber);
+        data.put("room_number", roomNumber);
+        data.put("room_image", ""); // No image in new structure
         return data;
     }
 
@@ -625,7 +667,7 @@ public class XMLManager {
 
     private int getNextStudentNumber() {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(STUDENTS_FILE)));
+            Document doc = documentBuilder.parse(new File(getFilePath()));
             NodeList students = doc.getElementsByTagName("student");
             return students.getLength() + 1;
         } catch (IOException | SAXException e) {
@@ -635,7 +677,7 @@ public class XMLManager {
 
     private int getNextAllocationNumber() {
         try {
-            Document doc = documentBuilder.parse(new File(getFilePath(ALLOCATIONS_FILE)));
+            Document doc = documentBuilder.parse(new File(getFilePath()));
             NodeList allocations = doc.getElementsByTagName("allocation");
             return allocations.getLength() + 1;
         } catch (IOException | SAXException e) {
@@ -657,5 +699,143 @@ public class XMLManager {
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new File(filePath));
         transformer.transform(source, result);
+    }
+
+    /**
+     * Get registered students from students.xml
+     */
+    public List<Map<String, String>> getRegisteredStudents() {
+        List<Map<String, String>> students = new ArrayList<>();
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return students;
+        }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentNodes = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentNodes.getLength(); i++) {
+                Element student = (Element) studentNodes.item(i);
+                String role = getElementValue(student, "role");
+                String allocationStatus = getElementValue(student, "allocation_status");
+
+                // Only include students who are registered (not allocated yet)
+                if ("student".equals(role) && "UNALLOCATED".equalsIgnoreCase(allocationStatus)) {
+                    Map<String, String> studentData = new HashMap<>();
+                    studentData.put("studentId", getElementValue(student, "student_id"));
+                    studentData.put("rollNumber", getElementValue(student, "roll_number"));
+                    studentData.put("name", getElementValue(student, "name"));
+                    studentData.put("year", getElementValue(student, "year"));
+                    studentData.put("email", getElementValue(student, "email"));
+                    students.add(studentData);
+                }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
+
+    /**
+     * Get rooms by block and floor
+     */
+    public List<Map<String, Object>> getRoomsByBlockAndFloor(String block, String floor) {
+        List<Map<String, Object>> rooms = new ArrayList<>();
+        try {
+            File file = new File(baseDir + File.separator + DATA_DIR + "rooms.xml");
+            if (!file.exists()) {
+                return rooms;
+        }
+
+            Document doc = documentBuilder.parse(file);
+            NodeList blockNodes = doc.getElementsByTagName("block");
+
+            for (int i = 0; i < blockNodes.getLength(); i++) {
+                Element blockElem = (Element) blockNodes.item(i);
+                if (block.equals(getElementValue(blockElem, "block_id"))) {
+                    NodeList floorNodes = blockElem.getElementsByTagName("floor");
+
+                    for (int j = 0; j < floorNodes.getLength(); j++) {
+                        Element floorElem = (Element) floorNodes.item(j);
+                        if (floor.equals(getElementValue(floorElem, "floor_number"))) {
+                            NodeList roomNodes = floorElem.getElementsByTagName("room");
+
+                            for (int k = 0; k < roomNodes.getLength(); k++) {
+                                Element roomElem = (Element) roomNodes.item(k);
+                                Map<String, Object> roomData = new HashMap<>();
+                                String roomNo = getElementValue(roomElem, "room_number");
+                                roomData.put("roomNo", roomNo);
+                                roomData.put("roomId", block + "-" + floor + "-" + roomNo);
+                                roomData.put("status", "available"); // Default status
+
+                                List<Map<String, String>> beds = new ArrayList<>();
+                                NodeList bedNodes = roomElem.getElementsByTagName("bed");
+
+                                for (int l = 0; l < bedNodes.getLength(); l++) {
+                                    Element bedElem = (Element) bedNodes.item(l);
+                                    Map<String, String> bedData = new HashMap<>();
+                                    String bedNo = getElementValue(bedElem, "bed_number");
+                                    bedData.put("bedNo", bedNo);
+                                    bedData.put("bedId", block + "-" + floor + "-" + roomNo + "-" + bedNo);
+                                    String rollNo = getElementValue(bedElem, "rollNo");
+                                    String status = rollNo != null && !rollNo.trim().isEmpty() ? "occupied" : "available";
+                                    bedData.put("status", status);
+                                    bedData.put("rollNo", rollNo);
+                                    beds.add(bedData);
+                                }
+
+                                roomData.put("beds", beds);
+                                rooms.add(roomData);
+                            }
+                        }
+                    }
+                }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rooms;
+    }
+
+    /**
+     * Update student allocation status in students.xml
+     */
+    public boolean updateStudentAllocationStatus(String rollNumber, String status, String block, String floor, String roomNo, String bedNo) {
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) {
+                return false;
+        }
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                String roll = getElementValue(student, "roll_number");
+                if (roll.equals(rollNumber)) {
+                    // Update allocation status
+                    NodeList statusNodes = student.getElementsByTagName("allocation_status");
+                    if (statusNodes.getLength() > 0) {
+                        statusNodes.item(0).setTextContent(status);
+                    } else {
+                        addElement(doc, student, "allocation_status", status);
+                    }
+
+                    // Add allocation details
+                    addElement(doc, student, "allocated_block", block);
+                    addElement(doc, student, "allocated_floor", floor);
+                    addElement(doc, student, "allocated_room", roomNo);
+                    addElement(doc, student, "allocated_bed", bedNo);
+
+                    saveDocument(doc, studentsFile.getAbsolutePath());
+                    return true;
+                }
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

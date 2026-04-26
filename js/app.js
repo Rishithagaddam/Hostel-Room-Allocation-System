@@ -205,11 +205,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add animation for success alerts
-    const successAlerts = document.querySelectorAll('.alert-success');
-    successAlerts.forEach(alert => {
-        alert.style.animation = 'slideDown 0.3s ease-in';
-    });
+    // Load dashboard data if on warden dashboard
+    if (document.getElementById('students-list')) {
+        loadDashboardStats();
+        loadRegisteredStudents();
+        loadAllocatedStudents();
+    }
 });
 
 /**
@@ -224,11 +225,66 @@ function confirmLogout() {
 }
 
 /**
- * Check if student is already allocated
+ * Load dashboard stats
  */
-function checkAllocation(studentId) {
-    // This would be called via AJAX if needed
-    console.log('Checking allocation for student:', studentId);
+function loadDashboardStats() {
+    fetch('/hostel-allocation/api/dashboard-stats')
+        .then(response => response.json())
+        .then(data => {
+            // Update stats cards by ID
+            document.getElementById('total-students').textContent = data.totalStudents;
+            document.getElementById('registered-students').textContent = data.registeredStudents;
+            document.getElementById('allocated-students').textContent = data.allocatedStudents;
+            document.getElementById('total-beds').textContent = data.totalBeds;
+            document.getElementById('available-beds').textContent = data.availableBeds;
+            document.getElementById('occupied-beds').textContent = data.occupiedBeds;
+
+            // Update occupancy bar
+            const occupancyPercent = data.totalBeds > 0 ? (data.occupiedBeds / data.totalBeds * 100) : 0;
+            const occupancyFill = document.querySelector('.occupancy-fill');
+            const occupancyText = document.querySelector('.occupancy-text');
+
+            if (occupancyFill) {
+                occupancyFill.style.width = occupancyPercent + '%';
+            }
+            if (occupancyText) {
+                occupancyText.textContent = occupancyPercent.toFixed(1) + '% Occupied';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading dashboard stats:', error);
+        });
+}
+
+/**
+ * Load allocated students
+ */
+function loadAllocatedStudents() {
+    const allocatedList = document.getElementById('allocated-students-list');
+
+    if (!allocatedList) {
+        return; // Only run on warden dashboard
+    }
+
+    // Fetch allocated students from server
+    fetch('/hostel-allocation/api/allocated-students', {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayAllocatedStudents(data);
+    })
+    .catch(error => {
+        console.error('Error fetching allocated students:', error);
+        if (allocatedList) {
+            allocatedList.innerHTML = `
+                <div class="no-students-msg">
+                    <p>❌ Error loading allocated students.</p>
+                    <p>Please refresh the page.</p>
+                </div>
+            `;
+        }
+    });
 }
 
 /**
@@ -348,7 +404,7 @@ function loadRegisteredStudents() {
     }
 
     // Fetch unallocated students from server
-    fetch('/hostel-allocation/allocate?action=get_students', {
+    fetch('/hostel-allocation/api/registered-students', {
         method: 'GET'
     })
     .then(response => response.json())
@@ -388,7 +444,7 @@ function displayUnallocatedStudents(students) {
                 <div class="header-cell">Roll No.</div>
                 <div class="header-cell">Year</div>
                 <div class="header-cell">Email</div>
-                <div class="header-cell">Credentials</div>
+                <div class="header-cell">Status</div>
                 <div class="header-cell">Action</div>
             </div>
         </div>
@@ -396,20 +452,16 @@ function displayUnallocatedStudents(students) {
     `;
 
     students.forEach((student, index) => {
+        const roll = student.rollNumber || student.rollNo;
         html += `
             <div class="table-row ${index % 2 === 0 ? 'even' : 'odd'}">
                 <div class="table-cell">${student.name}</div>
-                <div class="table-cell"><code>${student.roll_number}</code></div>
+                <div class="table-cell"><code>${roll}</code></div>
                 <div class="table-cell"><span class="year-badge">Year ${student.year}</span></div>
                 <div class="table-cell">${student.email}</div>
+                <div class="table-cell"><span class="status-badge status-${student.status}">${student.status}</span></div>
                 <div class="table-cell">
-                    <div class="credentials-preview">
-                        <small>ID: <strong>${student.student_id}</strong></small><br>
-                        <small>Status: <strong>Unallocated</strong></small>
-                    </div>
-                </div>
-                <div class="table-cell">
-                    <a href="/hostel-allocation/jsp/allocation.jsp?student_id=${student.student_id}" class="copy-btn" style="text-decoration:none;">
+                    <a href="/hostel-allocation/jsp/allocation.jsp?student_id=${roll}" class="copy-btn" style="text-decoration:none;">
                         🎯 Allocate
                     </a>
                 </div>
@@ -422,6 +474,60 @@ function displayUnallocatedStudents(students) {
     `;
 
     studentsList.innerHTML = html;
+}
+
+/**
+ * Display allocated students
+ */
+function displayAllocatedStudents(students) {
+    const allocatedList = document.getElementById('allocated-students-list');
+
+    if (students.length === 0) {
+        allocatedList.innerHTML = `
+            <div class="no-students-msg">
+                <p>🏠 No students allocated yet.</p>
+                <p>Use the allocation page to assign rooms to students.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let html = `
+        <div class="students-table-header">
+            <div class="table-header-row">
+                <div class="header-cell">Name</div>
+                <div class="header-cell">Roll No.</div>
+                <div class="header-cell">Year</div>
+                <div class="header-cell">Email</div>
+                <div class="header-cell">Room</div>
+                <div class="header-cell">Bed</div>
+            </div>
+        </div>
+        <div class="students-table-body">
+    `;
+
+    students.forEach((student, index) => {
+        const roll = student.rollNumber || student.rollNo;
+        const roomInfo = student.roomNo ? `${student.block}-${student.floor}-${student.roomNo}` : 'N/A';
+        const bedInfo = student.bedNo || 'N/A';
+
+        html += `
+            <div class="table-row ${index % 2 === 0 ? 'even' : 'odd'}">
+                <div class="table-cell">${student.name}</div>
+                <div class="table-cell"><code>${roll}</code></div>
+                <div class="table-cell"><span class="year-badge">Year ${student.year}</span></div>
+                <div class="table-cell">${student.email}</div>
+                <div class="table-cell"><span class="room-badge">${roomInfo}</span></div>
+                <div class="table-cell"><span class="bed-badge">${bedInfo}</span></div>
+            </div>
+        `;
+    });
+
+    html += `
+        </div>
+    `;
+
+    allocatedList.innerHTML = html;
 }
 
 /**
@@ -520,21 +626,9 @@ Questions? Contact Warden Office ✓`;
 }
 
 /**
- * Load allocated students
+ * Show notification
  */
-function loadAllocatedStudents() {
-    const allocatedList = document.getElementById('allocated-students-list');
-
-    if (!allocatedList) {
-        return;
-    }
-
-    // Placeholder for allocated students
-    // In production, this would fetch from server
-    allocatedList.innerHTML = `
-        <div class="no-students-msg">
-            <p>🎯 No allocated students yet.</p>
-            <p>Start allocating rooms to students using the allocation page.</p>
-        </div>
-    `;
+function showNotification(message, type) {
+    // Simple alert for now - can be enhanced with proper notification system
+    alert(message);
 }

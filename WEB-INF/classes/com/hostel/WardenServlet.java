@@ -18,6 +18,7 @@ public class WardenServlet extends HttpServlet {
         super.init();
         String appPath = getServletContext().getRealPath("/");
         xmlManager = new XMLManager(appPath);
+        xmlManager.initializeRoomsIfMissing();
         allocationEngine = new AllocationEngine(xmlManager);
     }
 
@@ -113,12 +114,14 @@ public class WardenServlet extends HttpServlet {
             throws ServletException, IOException {
         // Get dashboard statistics
         Map<String, Integer> stats = xmlManager.getDashboardStats();
-        double occupancy = allocationEngine.getOccupancyPercentage();
+        int totalBeds = stats.get("totalBeds");
+        int occupiedBeds = stats.get("occupiedBeds");
+        double occupancy = totalBeds > 0 ? (double) occupiedBeds / totalBeds * 100 : 0;
 
-        request.setAttribute("total_beds", stats.get("total_beds"));
-        request.setAttribute("occupied_beds", stats.get("occupied_beds"));
-        request.setAttribute("available_beds", stats.get("available_beds"));
-        request.setAttribute("total_students", stats.get("total_students"));
+        request.setAttribute("total_beds", totalBeds);
+        request.setAttribute("occupied_beds", occupiedBeds);
+        request.setAttribute("available_beds", stats.get("availableBeds"));
+        request.setAttribute("total_students", stats.get("totalStudents"));
         request.setAttribute("occupancy_percentage", String.format("%.1f", occupancy));
 
         getServletContext().getRequestDispatcher("/jsp/warden-dashboard.jsp").forward(request, response);
