@@ -6,6 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostel Allocation - Login</title>
     <link rel="stylesheet" href="/hostel-allocation/css/style.css">
+    <style>
+        .login-card .password-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .login-card .password-input-wrapper #password {
+            width: 100%;
+            padding-right: 44px;
+            margin: 0;
+        }
+
+        .login-card .password-input-wrapper .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            margin: 0;
+            border: none;
+            background: transparent;
+            color: #6c757d;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .login-card .password-input-wrapper .password-toggle:hover,
+        .login-card .password-input-wrapper .password-toggle.visible,
+        .login-card .password-input-wrapper .password-toggle:focus {
+            color: #4A6FA5;
+            outline: none;
+        }
+    </style>
 </head>
 <body class="login-page">
     <div class="login-container">
