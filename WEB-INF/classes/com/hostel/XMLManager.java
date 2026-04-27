@@ -241,7 +241,7 @@ public class XMLManager {
     /**
      * Add a new student with roll number
      */
-    public boolean addStudent(String name, String year, String email, String rollNumber, String username, String passwordHash) {
+    public boolean addStudent(String name, String year, String email, String rollNumber, String username, String passwordHash, String plainPassword) {
         try {
             File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
 
@@ -269,6 +269,7 @@ public class XMLManager {
             addElement(doc, student, "roll_number", rollNumber);
             addElement(doc, student, "username", username);
             addElement(doc, student, "password_hash", passwordHash);
+            addElement(doc, student, "plain_password", plainPassword);
             addElement(doc, student, "role", "student");
             addElement(doc, student, "year", year);
             addElement(doc, student, "payment_status", "completed");

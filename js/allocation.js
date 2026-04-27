@@ -193,8 +193,13 @@ function loadStudents() {
 
             // Pre-select student if passed in URL
             if (preSelectedId) {
-                studentSelect.value = preSelectedId;
-                loadStudentDetails();
+                const exists = Array.from(studentSelect.options)
+                    .some(option => option.value === preSelectedId);
+
+                if (exists) {
+                    studentSelect.value = preSelectedId;
+                    loadStudentDetails();
+                }
             }
         })
         .catch(error => {

@@ -10,7 +10,7 @@ public class EmailService {
      * Returns true if email sent successfully, false otherwise
      */
     public static boolean sendAllocationEmail(String studentName, String email, String rollNo,
-                                           String block, String floor, String room, String bed) {
+                                           String password, String block, String floor, String room, String bed) {
         if (email == null || email.trim().isEmpty()) {
             System.err.println("Email address is empty, cannot send allocation email");
             return false;
@@ -27,7 +27,7 @@ public class EmailService {
 
         try {
             String subject = "Hostel Room Allocation Confirmation";
-            String body = buildEmailBody(studentName, rollNo, block, floor, room, bed);
+            String body = buildEmailBody(studentName, rollNo, password, block, floor, room, bed);
 
             System.out.println("DEBUG: Sending email to: " + email);
             System.out.println("DEBUG: From: " + Constants.EMAIL_USERNAME);
@@ -98,14 +98,14 @@ public class EmailService {
         }
     }
 
-    private static String buildEmailBody(String studentName, String rollNo,
+    private static String buildEmailBody(String studentName, String rollNo, String password,
                                         String block, String floor, String room, String bed) {
         StringBuilder body = new StringBuilder();
         body.append("Dear ").append(studentName).append(",\n\n");
         body.append("Your hostel accommodation has been successfully allocated.\n\n");
         body.append("Login Credentials:\n");
         body.append("Username: ").append(rollNo).append("\n");
-        body.append("Password: Use the password given during registration\n\n");
+        body.append("Password: ").append(password).append("\n\n");
         body.append("Allocation Details:\n");
         body.append("Roll Number: ").append(rollNo).append("\n");
         body.append("Block: ").append(block).append("\n");

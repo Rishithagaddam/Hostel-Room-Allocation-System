@@ -70,7 +70,7 @@ public class WardenServlet extends HttpServlet {
         String passwordHash = PasswordUtils.hashPassword(password);
 
         // Add student to XML
-        boolean added = xmlManager.addStudent(studentName, studentYear, studentEmail, studentRoll.trim(), username, passwordHash);
+        boolean added = xmlManager.addStudent(studentName, studentYear, studentEmail, studentRoll.trim(), username, passwordHash, password);
 
         if (added) {
             // Redirect to warden dashboard with success message and credentials
