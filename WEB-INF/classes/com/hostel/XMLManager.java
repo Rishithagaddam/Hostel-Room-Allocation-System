@@ -559,7 +559,7 @@ public class XMLManager {
 
             for (int i = 0; i < totalBeds; i++) {
                 Element bed = (Element) beds.item(i);
-                String rollNo = getElementValue(bed, "rollNo");
+                String rollNo = bed.getAttribute("rollNo");
                 String status = (rollNo != null && !rollNo.trim().isEmpty()) ? "occupied" : "available";
                 if ("occupied".equalsIgnoreCase(status)) {
                     occupiedBeds++;
