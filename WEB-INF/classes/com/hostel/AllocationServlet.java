@@ -81,18 +81,24 @@ public class AllocationServlet extends HttpServlet {
             // STEP 4 EMAIL
             boolean emailSent = false;
             if(student != null){
-                System.out.println("DEBUG: About to send email to: " + student.get("email"));
-                emailSent = EmailService.sendAllocationEmail(
-                    student.get("name"),
-                    student.get("email"),
-                    rollNumber,
-                    student.get("plain_password"),
-                    block,
-                    floor,
-                    roomNo,
-                    bedNo
-                );
-                System.out.println("DEBUG: Email sent result: " + emailSent);
+                String plainPassword = student.get("plain_password");
+                if (plainPassword == null || plainPassword.trim().isEmpty()) {
+                    System.out.println("DEBUG: Plain password not available for student: " + rollNumber + ", skipping email");
+                    emailSent = false;
+                } else {
+                    System.out.println("DEBUG: About to send email to: " + student.get("email"));
+                    emailSent = EmailService.sendAllocationEmail(
+                        student.get("name"),
+                        student.get("email"),
+                        rollNumber,
+                        plainPassword,
+                        block,
+                        floor,
+                        roomNo,
+                        bedNo
+                    );
+                    System.out.println("DEBUG: Email sent result: " + emailSent);
+                }
             } else {
                 System.out.println("DEBUG: Student not found, skipping email");
             }
@@ -204,18 +210,25 @@ public class AllocationServlet extends HttpServlet {
             if (student != null) {
                 String studentEmail = student.get("email");
                 String studentName = student.get("name");
-                System.out.println("DEBUG: Attempting to send email to: " + studentEmail + " for student: " + studentName);
-                emailSent = EmailService.sendAllocationEmail(
-                    studentName,
-                    studentEmail,
-                    rollNumber,
-                    student.get("plain_password"),
-                    block,
-                    floor,
-                    roomNo,
-                    bedNo
-                );
-                System.out.println("DEBUG: Email sent result: " + emailSent);
+                String plainPassword = student.get("plain_password");
+
+                if (plainPassword == null || plainPassword.trim().isEmpty()) {
+                    System.out.println("DEBUG: Plain password not available for student: " + rollNumber + ", skipping email");
+                    emailSent = false;
+                } else {
+                    System.out.println("DEBUG: Attempting to send email to: " + studentEmail + " for student: " + studentName);
+                    emailSent = EmailService.sendAllocationEmail(
+                        studentName,
+                        studentEmail,
+                        rollNumber,
+                        plainPassword,
+                        block,
+                        floor,
+                        roomNo,
+                        bedNo
+                    );
+                    System.out.println("DEBUG: Email sent result: " + emailSent);
+                }
             } else {
                 System.out.println("DEBUG: Student not found for rollNumber: " + rollNumber);
             }

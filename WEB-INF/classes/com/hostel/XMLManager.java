@@ -617,6 +617,7 @@ public class XMLManager {
         data.put("rollNumber", getElementValue(student, "roll_number"));
         data.put("username", getElementValue(student, "username"));
         data.put("password_hash", getElementValue(student, "password_hash"));
+        data.put("plain_password", getElementValue(student, "plain_password"));
         data.put("role", getElementValue(student, "role"));
         data.put("year", getElementValue(student, "year"));
         data.put("payment_status", getElementValue(student, "payment_status"));

@@ -16,6 +16,11 @@ public class EmailService {
             return false;
         }
 
+        if (password == null || password.trim().isEmpty()) {
+            System.err.println("Password is empty, cannot send allocation email");
+            return false;
+        }
+
         // Validate email format more thoroughly
         if (!isValidEmail(email)) {
             System.err.println("Invalid email format: " + email);
