@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <students>
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+    
+    
+    
+    
     
     
     
@@ -56,7 +60,11 @@
     
     
     <!-- Default Warden Account -->
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+    
+    
+    
+    
     
     
     
@@ -112,7 +120,11 @@
     
     
     <!-- Username: warden, Password: warden123 (hashed) -->
-                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+    
+    
+    
+    
     
     
     
@@ -168,7 +180,11 @@
     
     
     <student>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -224,7 +240,11 @@
         
         
         <student_id>W001</student_id>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -280,7 +300,11 @@
         
         
         <name>Hostel Warden</name>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -336,7 +360,11 @@
         
         
         <email>warden@hostel.edu</email>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -392,7 +420,11 @@
         
         
         <username>warden</username>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -448,7 +480,11 @@
         
         
         <password_hash>a6e4b408c8d87fa54412db5204fc4f7e</password_hash>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -504,7 +540,11 @@
         
         
         <role>warden</role>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -560,7 +600,11 @@
         
         
         <year>0</year>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -616,7 +660,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -672,7 +720,11 @@
         
         
         <registration_date>2026-01-01</registration_date>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
     
     
     
@@ -727,7 +779,7 @@
     
     
     </student>
-                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
     
     
     
@@ -745,6 +797,1770 @@
     
 
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <student>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <student_id>S006</student_id>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <name>ayesha</name>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <email>rishithagaddam79@gmail.com</email>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <roll_number>23071A0579</roll_number>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <username>aye472</username>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <password_hash>f89e6fa2cb641cdd32a71cedab34d4fc</password_hash>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <role>student</role>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <year>3</year>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <payment_status>completed</payment_status>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocation_status>ALLOCATED</allocation_status>
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <registration_date>2026-04-26</registration_date>
+                                                                                                                                                                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_block>A</allocated_block>
+                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_floor>3</allocated_floor>
+                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_room>3</allocated_room>
+                                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_bed>1</allocated_bed>
+                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </student>
+                                                                                                                                                                                                                
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <student>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <student_id>S006</student_id>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <name>Akshaya</name>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <email>akshayachigullapally1@gmail.com</email>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <roll_number>23071A0504</roll_number>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <username>aks266</username>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <password_hash>528128d7b88a9bb3ded5d9415c94cb6b</password_hash>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <role>student</role>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <year>3</year>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <payment_status>completed</payment_status>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocation_status>ALLOCATED</allocation_status>
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <registration_date>2026-04-26</registration_date>
+                                                                                                                                                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_block>A</allocated_block>
+                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_floor>2</allocated_floor>
+                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_room>3</allocated_room>
+                                                                                                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_bed>2</allocated_bed>
+                                                                                                                                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </student>
+                                                                                                                                                                                                        
 
     
     
@@ -843,7 +2659,7 @@
         
         
         
-        <student_id>S006</student_id>
+        <student_id>S004</student_id>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -892,7 +2708,7 @@
         
         
         
-        <name>ayesha</name>
+        <name>myra</name>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -941,7 +2757,7 @@
         
         
         
-        <email>rishithagaddam79@gmail.com</email>
+        <email>myrrac257@gmail.com</email>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -990,7 +2806,7 @@
         
         
         
-        <roll_number>23071A0579</roll_number>
+        <roll_number>23071A090</roll_number>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1039,7 +2855,7 @@
         
         
         
-        <username>aye472</username>
+        <username>myr885</username>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1088,7 +2904,7 @@
         
         
         
-        <password_hash>f89e6fa2cb641cdd32a71cedab34d4fc</password_hash>
+        <password_hash>$2a$10$I44/1wQ9HreMXsRjN6OxteWOjjazNYr4VpyY23qbejXLcn0b2IDmO</password_hash>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1186,7 +3002,7 @@
         
         
         
-        <year>3</year>
+        <year>1</year>
                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1333,7 +3149,7 @@
         
         
         
-        <registration_date>2026-04-26</registration_date>
+        <registration_date>2026-04-27</registration_date>
                                                                                                                                                                                                                                                                                                                                                                                                     
         
         
@@ -1430,7 +3246,7 @@
         
         
         
-        <allocated_floor>3</allocated_floor>
+        <allocated_floor>2</allocated_floor>
                                                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -1478,7 +3294,7 @@
         
         
         
-        <allocated_room>3</allocated_room>
+        <allocated_room>5</allocated_room>
                                                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -1670,7 +3486,7 @@
         
         
         
-        <student_id>S006</student_id>
+        <student_id>S005</student_id>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1717,7 +3533,7 @@
         
         
         
-        <name>Akshaya</name>
+        <name>Vijji</name>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1764,7 +3580,7 @@
         
         
         
-        <email>akshayachigullapally1@gmail.com</email>
+        <email>myrrac257@gmail.com</email>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1811,7 +3627,7 @@
         
         
         
-        <roll_number>23071A0504</roll_number>
+        <roll_number>23071A05A0</roll_number>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1858,7 +3674,7 @@
         
         
         
-        <username>aks266</username>
+        <username>vij584</username>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1905,7 +3721,7 @@
         
         
         
-        <password_hash>528128d7b88a9bb3ded5d9415c94cb6b</password_hash>
+        <password_hash>$2a$10$/wwFRxXy1E5MzdrUj9LEk.GJXbdcRNPXxc5s2pPS/5fGOg6U19YrS</password_hash>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -1999,7 +3815,7 @@
         
         
         
-        <year>3</year>
+        <year>2</year>
                                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2140,7 +3956,7 @@
         
         
         
-        <registration_date>2026-04-26</registration_date>
+        <registration_date>2026-04-27</registration_date>
                                                                                                                                                                                                                                                                                                                                                                                     
         
         
@@ -2233,7 +4049,7 @@
         
         
         
-        <allocated_floor>2</allocated_floor>
+        <allocated_floor>3</allocated_floor>
                                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -2279,7 +4095,7 @@
         
         
         
-        <allocated_room>3</allocated_room>
+        <allocated_room>5</allocated_room>
                                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -2325,7 +4141,7 @@
         
         
         
-        <allocated_bed>2</allocated_bed>
+        <allocated_bed>1</allocated_bed>
                                                                                                                                                                                                                                                                                                                                                                             
     
     
@@ -2463,7 +4279,7 @@
         
         
         
-        <student_id>S004</student_id>
+        <student_id>S006</student_id>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2508,7 +4324,7 @@
         
         
         
-        <name>myra</name>
+        <name>Rishitha Gaddam</name>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2598,7 +4414,7 @@
         
         
         
-        <roll_number>23071A090</roll_number>
+        <roll_number>23071A0581</roll_number>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2643,7 +4459,7 @@
         
         
         
-        <username>myr885</username>
+        <username>risgad744</username>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2688,7 +4504,7 @@
         
         
         
-        <password_hash>$2a$10$I44/1wQ9HreMXsRjN6OxteWOjjazNYr4VpyY23qbejXLcn0b2IDmO</password_hash>
+        <password_hash>$2a$10$VxSWHRHETMuhEsc4M8KKU.k7YK9IPOzDrPy30ICKZxQDKlcBVFc1S</password_hash>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -2778,7 +4594,7 @@
         
         
         
-        <year>1</year>
+        <year>3</year>
                                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3002,7 +4818,7 @@
         
         
         
-        <allocated_floor>2</allocated_floor>
+        <allocated_floor>3</allocated_floor>
                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -3046,7 +4862,7 @@
         
         
         
-        <allocated_room>5</allocated_room>
+        <allocated_room>4</allocated_room>
                                                                                                                                                                                                                                                                                                                                                                 
         
         
@@ -3222,7 +5038,7 @@
         
         
         
-        <student_id>S005</student_id>
+        <student_id>S007</student_id>
                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3265,7 +5081,7 @@
         
         
         
-        <name>Vijji</name>
+        <name>Sanju</name>
                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3351,7 +5167,7 @@
         
         
         
-        <roll_number>23071A05A0</roll_number>
+        <roll_number>23071A0587</roll_number>
                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3394,7 +5210,7 @@
         
         
         
-        <username>vij584</username>
+        <username>san728</username>
                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3437,7 +5253,7 @@
         
         
         
-        <password_hash>$2a$10$/wwFRxXy1E5MzdrUj9LEk.GJXbdcRNPXxc5s2pPS/5fGOg6U19YrS</password_hash>
+        <password_hash>$2a$10$56oDgtbvFK.HltcDSKF4MuTd5UMrKYhDWmfWoUiyAh/zEWVcWCbUq</password_hash>
                                                                                                                                                                                                                                                                                                                                                         
         
         
@@ -3821,7 +5637,7 @@
         
         
         
-        <allocated_bed>1</allocated_bed>
+        <allocated_bed>3</allocated_bed>
                                                                                                                                                                                                                                                                                                                                             
     
     
@@ -3866,7 +5682,7 @@
     </student>
                                                                                                                                                                         
 
-    
+
     
     
     
@@ -3907,1359 +5723,11 @@
     
     
     <student>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <student_id>S006</student_id>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <name>Rishitha Gaddam</name>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <roll_number>23071A0581</roll_number>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <username>risgad744</username>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <password_hash>$2a$10$VxSWHRHETMuhEsc4M8KKU.k7YK9IPOzDrPy30ICKZxQDKlcBVFc1S</password_hash>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <role>student</role>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <year>3</year>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                                                                                                                                    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_block>A</allocated_block>
                                                                                                                                                                                                                                                                                                                                 
         
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_floor>3</allocated_floor>
-                                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_room>4</allocated_room>
-                                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_bed>1</allocated_bed>
-                                                                                                                                                                                                                                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </student>
-                                                                                                                                                                
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <student>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <student_id>S007</student_id>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <name>Sanju</name>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <roll_number>23071A0587</roll_number>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <username>san728</username>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <password_hash>$2a$10$56oDgtbvFK.HltcDSKF4MuTd5UMrKYhDWmfWoUiyAh/zEWVcWCbUq</password_hash>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <role>student</role>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <year>2</year>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                                                                                                                        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                                                                                                                    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_block>A</allocated_block>
-                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_floor>3</allocated_floor>
-                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_room>5</allocated_room>
-                                                                                                                                                                                                                                                                                                                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <allocated_bed>3</allocated_bed>
-                                                                                                                                                                                                                                                                                                            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </student>
-                                                                                                                                                        
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <student>
-                                                                                                                                                                                                                                                                                                
         
         
         
@@ -5295,7 +5763,11 @@
         
         
         <student_id>S008</student_id>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5331,7 +5803,11 @@
         
         
         <name>mava</name>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5367,7 +5843,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5403,7 +5883,11 @@
         
         
         <roll_number>23071A0589</roll_number>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5439,7 +5923,11 @@
         
         
         <username>mav458</username>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5475,7 +5963,11 @@
         
         
         <password_hash>$2a$10$FERymvPkqeFEDukyLY79DO7I9/9dSAQA850SMKxpus1D9fh0dvqza</password_hash>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5511,7 +6003,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5547,7 +6043,11 @@
         
         
         <year>3</year>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5583,7 +6083,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5619,7 +6123,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -5655,7 +6163,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                            
+        
+        
+        
+        
         
         
         
@@ -5691,7 +6203,11 @@
         
         
         <allocated_block>A</allocated_block>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5726,7 +6242,11 @@
         
         
         <allocated_floor>1</allocated_floor>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5761,7 +6281,11 @@
         
         
         <allocated_room>5</allocated_room>
-                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5796,7 +6320,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
     
     
     
@@ -5831,9 +6359,13 @@
     
     
     </student>
-                                                                                                                                            
+                                                                                                                                                            
 
 
+    
+    
+    
+    
     
     
     
@@ -5867,7 +6399,11 @@
     
     
     <student>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5900,7 +6436,11 @@
         
         
         <student_id>S009</student_id>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5933,7 +6473,11 @@
         
         
         <name>venky</name>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5966,7 +6510,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -5999,7 +6547,11 @@
         
         
         <roll_number>23071A0570</roll_number>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6032,7 +6584,11 @@
         
         
         <username>ven793</username>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6065,7 +6621,11 @@
         
         
         <password_hash>$2a$10$vYIXGqaFLsghQ98jM6.wTu63c4/hjkihgey8HCd2lr3puZ7b3VUve</password_hash>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6098,7 +6658,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6131,7 +6695,11 @@
         
         
         <year>2</year>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6164,7 +6732,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6197,7 +6769,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6230,7 +6806,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                    
+        
+        
+        
+        
         
         
         
@@ -6263,7 +6843,11 @@
         
         
         <allocated_block>C</allocated_block>
-                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6295,7 +6879,11 @@
         
         
         <allocated_floor>1</allocated_floor>
-                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6327,7 +6915,11 @@
         
         
         <allocated_room>1</allocated_room>
-                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6359,7 +6951,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+    
+    
+    
+    
     
     
     
@@ -6391,9 +6987,13 @@
     
     
     </student>
-                                                                                                                                
+                                                                                                                                                
 
 
+    
+    
+    
+    
     
     
     
@@ -6424,7 +7024,11 @@
     
     
     <student>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6454,7 +7058,11 @@
         
         
         <student_id>S010</student_id>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6484,7 +7092,11 @@
         
         
         <name>gayathri</name>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6514,7 +7126,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6544,7 +7160,11 @@
         
         
         <roll_number>23071A0580</roll_number>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6574,7 +7194,11 @@
         
         
         <username>gay335</username>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6604,7 +7228,11 @@
         
         
         <password_hash>$2a$10$ShHXeC9Pk3ymxg9triFfv.St0WNj.qm2Xu1XeacVzyT6wijnijQlW</password_hash>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6634,7 +7262,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6664,7 +7296,11 @@
         
         
         <year>3</year>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6694,7 +7330,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6724,7 +7364,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -6754,7 +7398,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                            
+        
+        
+        
+        
         
         
         
@@ -6784,7 +7432,11 @@
         
         
         <allocated_block>C</allocated_block>
-                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6813,7 +7465,11 @@
         
         
         <allocated_floor>3</allocated_floor>
-                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6842,7 +7498,11 @@
         
         
         <allocated_room>3</allocated_room>
-                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6871,7 +7531,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                    
+    
+    
+    
+    
     
     
     
@@ -6900,9 +7564,13 @@
     
     
     </student>
-                                                                                                                    
+                                                                                                                                    
 
 
+    
+    
+    
+    
     
     
     
@@ -6930,7 +7598,11 @@
     
     
     <student>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6957,7 +7629,11 @@
         
         
         <student_id>S011</student_id>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -6984,7 +7660,11 @@
         
         
         <name>mava</name>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7011,7 +7691,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7038,7 +7722,11 @@
         
         
         <roll_number>23071A0578</roll_number>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7065,7 +7753,11 @@
         
         
         <username>mav438</username>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7092,7 +7784,11 @@
         
         
         <password_hash>$2a$10$7UToLumCEbyGvgTF2RdoSOm.QKs7fLC/PaC5.SGHyPUO003gqzXOO</password_hash>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7119,7 +7815,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7146,7 +7846,11 @@
         
         
         <year>2</year>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7173,7 +7877,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7200,7 +7908,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7227,7 +7939,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                    
+        
+        
+        
+        
         
         
         
@@ -7254,7 +7970,11 @@
         
         
         <allocated_block>C</allocated_block>
-                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7280,7 +8000,11 @@
         
         
         <allocated_floor>1</allocated_floor>
-                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7306,7 +8030,11 @@
         
         
         <allocated_room>3</allocated_room>
-                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7332,7 +8060,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+    
+    
+    
+    
     
     
     
@@ -7358,9 +8090,13 @@
     
     
     </student>
-                                                                                                        
+                                                                                                                        
 
 
+    
+    
+    
+    
     
     
     
@@ -7385,7 +8121,11 @@
     
     
     <student>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7409,7 +8149,11 @@
         
         
         <student_id>S012</student_id>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7433,7 +8177,11 @@
         
         
         <name>Rishitha Gaddam</name>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7457,7 +8205,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7481,7 +8233,11 @@
         
         
         <roll_number>21de</roll_number>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7505,7 +8261,11 @@
         
         
         <username>risgad966</username>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7529,7 +8289,11 @@
         
         
         <password_hash>$2a$10$eYZxvv6isnrHbgmA/BSlL.o5hnVyWq/./jHKzQ6nk4ZlFn8DMly3q</password_hash>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7553,7 +8317,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7577,7 +8345,11 @@
         
         
         <year>2</year>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7601,7 +8373,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7625,7 +8401,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                                                
+                                                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -7649,7 +8429,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+        
+        
+        
+        
         
         
         
@@ -7673,7 +8457,11 @@
         
         
         <allocated_block>A</allocated_block>
-                                                                                                                                                                                        
+                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7696,7 +8484,11 @@
         
         
         <allocated_floor>2</allocated_floor>
-                                                                                                                                                                                        
+                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7719,7 +8511,11 @@
         
         
         <allocated_room>2</allocated_room>
-                                                                                                                                                                                        
+                                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7742,7 +8538,11 @@
         
         
         <allocated_bed>3</allocated_bed>
-                                                                                                                                                                                    
+                                                                                                                                                                                                                    
+    
+    
+    
+    
     
     
     
@@ -7765,9 +8565,13 @@
     
     
     </student>
-                                                                                            
+                                                                                                            
 
 
+    
+    
+    
+    
     
     
     
@@ -7789,7 +8593,11 @@
     
     
     <student>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7810,7 +8618,11 @@
         
         
         <student_id>S013</student_id>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7831,7 +8643,11 @@
         
         
         <name>ram</name>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7852,7 +8668,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7873,7 +8693,11 @@
         
         
         <roll_number>3456</roll_number>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7894,7 +8718,11 @@
         
         
         <username>ram321</username>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7915,7 +8743,11 @@
         
         
         <password_hash>$2a$10$VTnJU6v3S3PsP3pAvp00COiOTMKq59H4NFPwiXEaO8IrJ3tYrJ7WW</password_hash>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7936,7 +8768,11 @@
         
         
         <role>student</role>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7957,7 +8793,11 @@
         
         
         <year>3</year>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7978,7 +8818,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -7999,7 +8843,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                                        
+                                                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8020,7 +8868,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                                                    
+                                                                                                                                                                                                    
+        
+        
+        
+        
         
         
         
@@ -8041,7 +8893,11 @@
         
         
         <allocated_block>B</allocated_block>
-                                                                                                                                                                
+                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8061,7 +8917,11 @@
         
         
         <allocated_floor>1</allocated_floor>
-                                                                                                                                                                
+                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8081,7 +8941,11 @@
         
         
         <allocated_room>3</allocated_room>
-                                                                                                                                                                
+                                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8101,7 +8965,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                                            
+                                                                                                                                                                                            
+    
+    
+    
+    
     
     
     
@@ -8121,9 +8989,13 @@
     
     
     </student>
-                                                                                
+                                                                                                
 
 
+    
+    
+    
+    
     
     
     
@@ -8142,7 +9014,11 @@
     
     
     <student>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8160,7 +9036,11 @@
         
         
         <student_id>S014</student_id>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8178,7 +9058,11 @@
         
         
         <name>prath</name>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8196,7 +9080,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8214,7 +9102,11 @@
         
         
         <roll_number>23071A0905</roll_number>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8232,7 +9124,11 @@
         
         
         <username>pra201</username>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8250,7 +9146,11 @@
         
         
         <password_hash>$2a$10$ys.CStPk98dXaz1tZ7PA8.xz9Bp9jFJasqNdaT4NuNls7SMs2dSHO</password_hash>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8268,7 +9168,11 @@
         
         
         <role>student</role>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8286,7 +9190,11 @@
         
         
         <year>4</year>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8304,7 +9212,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8322,7 +9234,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                                                
+                                                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8340,7 +9256,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                                            
+                                                                                                                                                                            
+        
+        
+        
+        
         
         
         
@@ -8358,7 +9278,11 @@
         
         
         <allocated_block>B</allocated_block>
-                                                                                                                                        
+                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8375,7 +9299,11 @@
         
         
         <allocated_floor>3</allocated_floor>
-                                                                                                                                        
+                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8392,7 +9320,11 @@
         
         
         <allocated_room>2</allocated_room>
-                                                                                                                                        
+                                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8409,7 +9341,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                                                    
+                                                                                                                                                                    
+    
+    
+    
+    
     
     
     
@@ -8426,9 +9362,13 @@
     
     
     </student>
-                                                                    
+                                                                                    
 
 
+    
+    
+    
+    
     
     
     
@@ -8444,7 +9384,11 @@
     
     
     <student>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8459,7 +9403,11 @@
         
         
         <student_id>S015</student_id>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8474,7 +9422,11 @@
         
         
         <name>sri</name>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8489,7 +9441,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8504,7 +9460,11 @@
         
         
         <roll_number>23071A05737</roll_number>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8519,7 +9479,11 @@
         
         
         <username>sri784</username>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8534,7 +9498,11 @@
         
         
         <password_hash>$2a$10$gg5MTPtOe7FGmjqA4BSnA.DTRbl57tvyLhmOEPrg.yh3wZL6d/jGq</password_hash>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8549,7 +9517,11 @@
         
         
         <role>student</role>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8564,7 +9536,11 @@
         
         
         <year>1</year>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8579,7 +9555,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8594,7 +9574,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                                        
+                                                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8609,7 +9593,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                                                    
+                                                                                                                                                    
+        
+        
+        
+        
         
         
         
@@ -8624,7 +9612,11 @@
         
         
         <allocated_block>B</allocated_block>
-                                                                                                                
+                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8638,7 +9630,11 @@
         
         
         <allocated_floor>1</allocated_floor>
-                                                                                                                
+                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8652,7 +9648,11 @@
         
         
         <allocated_room>2</allocated_room>
-                                                                                                                
+                                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8666,7 +9666,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                                            
+                                                                                                                                            
+    
+    
+    
+    
     
     
     
@@ -8680,9 +9684,13 @@
     
     
     </student>
-                                                        
+                                                                        
 
 
+    
+    
+    
+    
     
     
     
@@ -8695,7 +9703,11 @@
     
     
     <student>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8707,7 +9719,11 @@
         
         
         <student_id>S016</student_id>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8719,7 +9735,11 @@
         
         
         <name>Vijjtha</name>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8731,7 +9751,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8743,7 +9767,11 @@
         
         
         <roll_number>23071A05814</roll_number>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8755,7 +9783,11 @@
         
         
         <username>vij801</username>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8767,7 +9799,11 @@
         
         
         <password_hash>$2a$10$Hjvgpv7rsgemWM4pKpeE8e9GbtfhWcYnV1ehZ8ssbmwJYZMXqGdAu</password_hash>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8779,7 +9815,11 @@
         
         
         <role>student</role>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8791,7 +9831,11 @@
         
         
         <year>2</year>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8803,7 +9847,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8815,7 +9863,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                                                
+                                                                                                                                
+        
+        
+        
+        
         
         
         
@@ -8827,7 +9879,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                                            
+                                                                                                                            
+        
+        
+        
+        
         
         
         
@@ -8839,7 +9895,11 @@
         
         
         <allocated_block>C</allocated_block>
-                                                                                        
+                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8850,7 +9910,11 @@
         
         
         <allocated_floor>2</allocated_floor>
-                                                                                        
+                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8861,7 +9925,11 @@
         
         
         <allocated_room>2</allocated_room>
-                                                                                        
+                                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8872,7 +9940,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                                                    
+                                                                                                                    
+    
+    
+    
+    
     
     
     
@@ -8883,9 +9955,13 @@
     
     
     </student>
-                                            
+                                                            
 
 
+    
+    
+    
+    
     
     
     
@@ -8895,7 +9971,11 @@
     
     
     <student>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8904,7 +9984,11 @@
         
         
         <student_id>S017</student_id>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8913,7 +9997,11 @@
         
         
         <name>mavay</name>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8922,7 +10010,11 @@
         
         
         <email>myrrac257@gmail.com</email>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8931,7 +10023,11 @@
         
         
         <roll_number>wsgszg44</roll_number>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8940,7 +10036,11 @@
         
         
         <username>mav975</username>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8949,7 +10049,11 @@
         
         
         <password_hash>$2a$10$9bCDToWJwEYz3zo04hWpPepkLYwXN/4pK74wQs4y9Bbpl0yVnSwwS</password_hash>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8958,7 +10062,11 @@
         
         
         <role>student</role>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8967,7 +10075,11 @@
         
         
         <year>1</year>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8976,7 +10088,11 @@
         
         
         <payment_status>completed</payment_status>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8985,7 +10101,11 @@
         
         
         <allocation_status>ALLOCATED</allocation_status>
-                                                                        
+                                                                                                        
+        
+        
+        
+        
         
         
         
@@ -8994,7 +10114,11 @@
         
         
         <registration_date>2026-04-27</registration_date>
-                                                                    
+                                                                                                    
+        
+        
+        
+        
         
         
         
@@ -9003,7 +10127,11 @@
         
         
         <allocated_block>C</allocated_block>
-                                                                
+                                                                                                
+        
+        
+        
+        
         
         
         
@@ -9011,7 +10139,11 @@
         
         
         <allocated_floor>2</allocated_floor>
-                                                                
+                                                                                                
+        
+        
+        
+        
         
         
         
@@ -9019,7 +10151,11 @@
         
         
         <allocated_room>3</allocated_room>
-                                                                
+                                                                                                
+        
+        
+        
+        
         
         
         
@@ -9027,7 +10163,11 @@
         
         
         <allocated_bed>1</allocated_bed>
-                                                            
+                                                                                            
+    
+    
+    
+    
     
     
     
@@ -9035,8 +10175,318 @@
     
     
     </student>
-                                
+                                                
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <student>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <student_id>S018</student_id>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <name>Sanjith</name>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <email>myrrac257@gmail.com</email>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <roll_number>23071A05799</roll_number>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <username>san093</username>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <password_hash>$2a$10$Lzx1rvLbv9Fw8wEmeT.agu4nOgHbPT9uM9wwyKG1Ciz0eDKW92zaG</password_hash>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <role>student</role>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <year>2</year>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <payment_status>completed</payment_status>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocation_status>ALLOCATED</allocation_status>
+                                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        <registration_date>2026-04-27</registration_date>
+                                                                            
+        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_block>C</allocated_block>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_floor>2</allocated_floor>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_room>5</allocated_room>
+                                                                        
+        
+        
+        
+        
+        
+        
+        
+        <allocated_bed>1</allocated_bed>
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    </student>
+                                    
+
+    
+    
+    
+    
+    
+    
+    
+    <student>
+                                                                
+        
+        
+        
+        
+        
+        
+        <student_id>S019</student_id>
+                                                                
+        
+        
+        
+        
+        
+        
+        <name>Rishithare</name>
+                                                                
+        
+        
+        
+        
+        
+        
+        <email>rishithagaddam079@gmail.com</email>
+                                                                
+        
+        
+        
+        
+        
+        
+        <roll_number>23071A05797</roll_number>
+                                                                
+        
+        
+        
+        
+        
+        
+        <username>ris167</username>
+                                                                
+        
+        
+        
+        
+        
+        
+        <password_hash>$2a$10$hj6Ze2tcEZeJtimiCygML.JcnNUJ1Lu.9lPuko7znwrAtDQTp4mO6</password_hash>
+                                                                
+        
+        
+        
+        
+        
+        
+        <plain_password>mWIGmklM</plain_password>
+                                                                
+        
+        
+        
+        
+        
+        
+        <role>student</role>
+                                                                
+        
+        
+        
+        
+        
+        
+        <year>2</year>
+                                                                
+        
+        
+        
+        
+        
+        
+        <payment_status>completed</payment_status>
+                                                                
+        
+        
+        
+        
+        
+        
+        <allocation_status>ALLOCATED</allocation_status>
+                                                                
+        
+        
+        
+        
+        
+        
+        <registration_date>2026-04-27</registration_date>
+                                                            
+        
+        
+        
+        
+        
+        
+        <allocated_block>C</allocated_block>
+                                                        
+        
+        
+        
+        
+        
+        <allocated_floor>2</allocated_floor>
+                                                        
+        
+        
+        
+        
+        
+        <allocated_room>5</allocated_room>
+                                                        
+        
+        
+        
+        
+        
+        <allocated_bed>3</allocated_bed>
+                                                    
+    
+    
+    
+    
+    
+    </student>
+                            
 
     
     
@@ -9049,13 +10499,13 @@
         
         
         
-        <student_id>S018</student_id>
+        <student_id>S020</student_id>
                                                 
         
         
         
         
-        <name>Sanjith</name>
+        <name>ayeshaaa</name>
                                                 
         
         
@@ -9067,19 +10517,25 @@
         
         
         
-        <roll_number>23071A05799</roll_number>
+        <roll_number>4brggbgr</roll_number>
                                                 
         
         
         
         
-        <username>san093</username>
+        <username>aye533</username>
                                                 
         
         
         
         
-        <password_hash>$2a$10$Lzx1rvLbv9Fw8wEmeT.agu4nOgHbPT9uM9wwyKG1Ciz0eDKW92zaG</password_hash>
+        <password_hash>$2a$10$ajZGgwGYowN7IjODs8cuJugKzwl9pSO2R17g5Qbz2l2ROFNf/kuBu</password_hash>
+                                                
+        
+        
+        
+        
+        <plain_password>RhnBI9a8</plain_password>
                                                 
         
         
@@ -9091,7 +10547,7 @@
         
         
         
-        <year>2</year>
+        <year>3</year>
                                                 
         
         
@@ -9120,17 +10576,17 @@
         
         
         
-        <allocated_floor>2</allocated_floor>
+        <allocated_floor>3</allocated_floor>
                                         
         
         
         
-        <allocated_room>5</allocated_room>
+        <allocated_room>3</allocated_room>
                                         
         
         
         
-        <allocated_bed>1</allocated_bed>
+        <allocated_bed>2</allocated_bed>
                                     
     
     
@@ -9145,31 +10601,31 @@
                                 
         
         
-        <student_id>S019</student_id>
+        <student_id>S021</student_id>
                                 
         
         
-        <name>Rishithare</name>
+        <name>Radha</name>
                                 
         
         
-        <email>rishithagaddam079@gmail.com</email>
+        <email>akshayachigullapally1@gmail.com</email>
                                 
         
         
-        <roll_number>23071A05797</roll_number>
+        <roll_number>24071A044</roll_number>
                                 
         
         
-        <username>ris167</username>
+        <username>rad737</username>
                                 
         
         
-        <password_hash>$2a$10$hj6Ze2tcEZeJtimiCygML.JcnNUJ1Lu.9lPuko7znwrAtDQTp4mO6</password_hash>
+        <password_hash>$2a$10$k1DIQ7bBoIf/XEFbGBDPU.T7FEHISAGlnYVVcqyrAG/G/CHsDQSKe</password_hash>
                                 
         
         
-        <plain_password>mWIGmklM</plain_password>
+        <plain_password>Mm32zZoo</plain_password>
                                 
         
         
@@ -9177,7 +10633,7 @@
                                 
         
         
-        <year>2</year>
+        <year>4</year>
                                 
         
         
@@ -9191,54 +10647,60 @@
         
         <registration_date>2026-04-27</registration_date>
                             
-        
+    
         
         <allocated_block>C</allocated_block>
-                        
-        
-        <allocated_floor>2</allocated_floor>
-                        
-        
-        <allocated_room>5</allocated_room>
-                        
-        
+                
+        <allocated_floor>1</allocated_floor>
+                
+        <allocated_room>2</allocated_room>
+                
         <allocated_bed>3</allocated_bed>
+            
+    </student>
+            
+    
+    
+    <student>
+                        
+        
+        <student_id>S022</student_id>
+                        
+        
+        <name>Radha</name>
+                        
+        
+        <email>akshayachigullapally1@gmail.com</email>
+                        
+        
+        <roll_number>24071A055</roll_number>
+                        
+        
+        <username>rad919</username>
+                        
+        
+        <password_hash>$2a$10$hNhCinPzLl5GYQlOCakzo.i1rXS2OBpScK5CGk/H26wsrccFgpwkS</password_hash>
+                        
+        
+        <plain_password>MeV3khBZ</plain_password>
+                        
+        
+        <role>student</role>
+                        
+        
+        <year>4</year>
+                        
+        
+        <payment_status>completed</payment_status>
+                        
+        
+        <allocation_status>UNALLOCATED</allocation_status>
+                        
+        
+        <registration_date>2026-04-27</registration_date>
                     
     
     </student>
-            
+        
 
-    
-    <student>
-                
-        <student_id>S020</student_id>
-                
-        <name>ayeshaaa</name>
-                
-        <email>myrrac257@gmail.com</email>
-                
-        <roll_number>4brggbgr</roll_number>
-                
-        <username>aye533</username>
-                
-        <password_hash>$2a$10$ajZGgwGYowN7IjODs8cuJugKzwl9pSO2R17g5Qbz2l2ROFNf/kuBu</password_hash>
-                
-        <plain_password>RhnBI9a8</plain_password>
-                
-        <role>student</role>
-                
-        <year>3</year>
-                
-        <payment_status>completed</payment_status>
-                
-        <allocation_status>ALLOCATED</allocation_status>
-                
-        <registration_date>2026-04-27</registration_date>
-            
-        <allocated_block>C</allocated_block>
-        <allocated_floor>3</allocated_floor>
-        <allocated_room>3</allocated_room>
-        <allocated_bed>2</allocated_bed>
-    </student>
-    
 </students>
