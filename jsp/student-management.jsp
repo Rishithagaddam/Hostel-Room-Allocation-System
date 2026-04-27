@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="true"%>
 <%
     String role = (String) session.getAttribute("role");
     if (role == null || !"warden".equals(role)) {
@@ -91,10 +91,38 @@
             border-bottom: 1px solid #eee;
             align-items: center;
             font-size: 14px;
+            cursor: pointer;
         }
 
         .student-row:hover {
             background-color: #f8f9fa;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px 12px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            word-break: break-word;
         }
 
         .action-buttons {
@@ -311,7 +339,18 @@
         </div>
     </div>
 
+    <!-- Student Details Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <span class="close-btn" onclick="closeDetailsModal()">&times;</span>
+            <div class="modal-header">Student Details</div>
+            <div id="studentDetailsContent" class="details-grid"></div>
+        </div>
+    </div>
+
     <script>
+        let studentsCache = [];
+
         // Load students on page load
         window.addEventListener('DOMContentLoaded', () => {
             loadStudents();
@@ -333,6 +372,7 @@
 
         function displayStudents(students) {
             const container = document.getElementById('studentsList');
+            studentsCache = Array.isArray(students) ? students : [];
 
             if (!students || students.length === 0) {
                 container.innerHTML = '<div class="empty-state">No students found</div>';
@@ -343,30 +383,43 @@
             let html = '';
             students.forEach((student, idx) => {
                 console.log(`Student ${idx}:`, JSON.stringify(student));
-                // Handle the issue where fields are coming back as string "false"
-                const name = student.name && student.name !== 'false' ? student.name : '(unknown)';
-                const rollNumber = student.rollNumber && student.rollNumber !== 'false' ? student.rollNumber : '(unknown)';
-                const email = student.email && student.email !== 'false' ? student.email : '(unknown)';
-                const year = student.year && student.year !== 'false' ? student.year : '?';
+                const name = normalizeField(student.name, '(unknown)');
+                const rollNumber = normalizeField(student.rollNumber || student.roll_number, '(unknown)');
+                const email = normalizeField(student.email, '(unknown)');
+                const year = normalizeField(student.year, '?');
                 const status = student.allocation_status === 'ALLOCATED' ? 'Allocated' : 'Unallocated';
                 const statusColor = student.allocation_status === 'ALLOCATED' ? '#28A745' : '#FFC107';
+                const studentId = normalizeField(student.student_id || student.studentId, '');
 
                 html += `
-                    <div class="student-row">
+                    <div class="student-row" onclick="openStudentDetails(${idx})">
                         <div>${name}</div>
                         <div>${rollNumber}</div>
                         <div>${email}</div>
                         <div><span class="year-badge" style="background: #4A6FA5;">Year ${year}</span></div>
                         <div><span style="background: ${statusColor}; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">${status}</span></div>
                         <div class="action-buttons">
-                            <button class="btn-small btn-edit" onclick="editStudent('${student.student_id}', '${name}', '${email}', '${year}')">Edit</button>
-                            <button class="btn-small btn-delete" onclick="deleteStudent('${student.student_id}', '${name}')">Delete</button>
+                            <button class="btn-small btn-edit" onclick="editStudent(event, '${studentId}')">Edit</button>
+                            <button class="btn-small btn-delete" onclick="deleteStudent(event, '${studentId}')">Delete</button>
                         </div>
                     </div>
                 `;
             });
 
             container.innerHTML = html;
+        }
+
+        function normalizeField(value, fallback) {
+            if (value === undefined || value === null) {
+                return fallback;
+            }
+
+            const cleaned = String(value).trim();
+            if (!cleaned || cleaned.toLowerCase() === 'false' || cleaned.toLowerCase() === 'null') {
+                return fallback;
+            }
+
+            return cleaned;
         }
 
         function searchStudents() {
@@ -398,11 +451,18 @@
             });
         }
 
-        function editStudent(studentId, name, email, year) {
+        function editStudent(event, studentId) {
+            event.stopPropagation();
+            const student = studentsCache.find(s => normalizeField(s.student_id || s.studentId, '') === studentId);
+            if (!student) {
+                showError('Student not found');
+                return;
+            }
+
             document.getElementById('editStudentId').value = studentId;
-            document.getElementById('editName').value = name;
-            document.getElementById('editEmail').value = email;
-            document.getElementById('editYear').value = year;
+            document.getElementById('editName').value = normalizeField(student.name, '');
+            document.getElementById('editEmail').value = normalizeField(student.email, '');
+            document.getElementById('editYear').value = normalizeField(student.year, '1');
             document.getElementById('editModal').style.display = 'block';
         }
 
@@ -440,7 +500,11 @@
             });
         }
 
-        function deleteStudent(studentId, name) {
+        function deleteStudent(event, studentId) {
+            event.stopPropagation();
+            const student = studentsCache.find(s => normalizeField(s.student_id || s.studentId, '') === studentId);
+            const name = student ? normalizeField(student.name, 'this student') : 'this student';
+
             if (!confirm('Are you sure you want to delete ' + name + '? This action cannot be undone.')) {
                 return;
             }
@@ -470,6 +534,38 @@
             document.getElementById('editErrorMessage').style.display = 'none';
         }
 
+        function openStudentDetails(index) {
+            const student = studentsCache[index];
+            if (!student) {
+                return;
+            }
+
+            const status = student.allocation_status === 'ALLOCATED' ? 'Allocated' : 'Unallocated';
+            const block = normalizeField(student.allocated_block || student.block, '-');
+            const floor = normalizeField(student.allocated_floor || student.floor, '-');
+            const room = normalizeField(student.allocated_room || student.room || student.roomNo, '-');
+            const bed = normalizeField(student.allocated_bed || student.bed || student.bedNo, '-');
+
+            document.getElementById('studentDetailsContent').innerHTML = `
+                <div class="detail-item"><div class="detail-label">Student ID</div><div class="detail-value">${normalizeField(student.student_id || student.studentId, '-')}</div></div>
+                <div class="detail-item"><div class="detail-label">Name</div><div class="detail-value">${normalizeField(student.name, '-')}</div></div>
+                <div class="detail-item"><div class="detail-label">Roll Number</div><div class="detail-value">${normalizeField(student.rollNumber || student.roll_number, '-')}</div></div>
+                <div class="detail-item"><div class="detail-label">Email</div><div class="detail-value">${normalizeField(student.email, '-')}</div></div>
+                <div class="detail-item"><div class="detail-label">Year</div><div class="detail-value">Year ${normalizeField(student.year, '-')}</div></div>
+                <div class="detail-item"><div class="detail-label">Allocation Status</div><div class="detail-value">${status}</div></div>
+                <div class="detail-item"><div class="detail-label">Block</div><div class="detail-value">${block}</div></div>
+                <div class="detail-item"><div class="detail-label">Floor</div><div class="detail-value">${floor}</div></div>
+                <div class="detail-item"><div class="detail-label">Room</div><div class="detail-value">${room}</div></div>
+                <div class="detail-item"><div class="detail-label">Bed</div><div class="detail-value">${bed}</div></div>
+            `;
+
+            document.getElementById('detailsModal').style.display = 'block';
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+
         function showError(message) {
             const el = document.getElementById('errorMessage');
             el.textContent = message;
@@ -497,8 +593,12 @@
         // Close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('editModal');
+            const detailsModal = document.getElementById('detailsModal');
             if (event.target === modal) {
                 closeEditModal();
+            }
+            if (event.target === detailsModal) {
+                closeDetailsModal();
             }
         }
     </script>

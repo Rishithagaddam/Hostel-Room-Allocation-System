@@ -201,7 +201,7 @@ public class XMLManager {
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                String roll = getElementValue(student, "roll_number");
+                String roll = getStudentRollNumber(student);
                 if (roll != null && roll.equals(rollNo)) {
                     return parseStudentElement(student);
                 }
@@ -227,7 +227,7 @@ public class XMLManager {
 
             for (int i = 0; i < students.getLength(); i++) {
                 Element student = (Element) students.item(i);
-                String roll = getElementValue(student, "roll_number");
+                String roll = getStudentRollNumber(student);
                 if (roll != null && roll.equals(rollNumber)) {
                     return true;
                 }
@@ -611,39 +611,94 @@ public class XMLManager {
 
     private Map<String, String> parseStudentElement(Element student) {
         Map<String, String> data = new HashMap<>();
-        data.put("student_id", getElementValue(student, "student_id"));
-        data.put("name", getElementValue(student, "name"));
-        data.put("email", getElementValue(student, "email"));
-        data.put("rollNumber", getElementValue(student, "roll_number"));
-        data.put("username", getElementValue(student, "username"));
-        data.put("password_hash", getElementValue(student, "password_hash"));
-        data.put("plain_password", getElementValue(student, "plain_password"));
-        data.put("role", getElementValue(student, "role"));
-        data.put("year", getElementValue(student, "year"));
-        data.put("payment_status", getElementValue(student, "payment_status"));
-        data.put("status", getElementValue(student, "status"));
-        data.put("allocation_status", getElementValue(student, "allocation_status"));
-        data.put("registration_date", getElementValue(student, "registration_date"));
+        String studentId = getElementValue(student, "student_id");
+        String name = getElementValue(student, "name");
+        String email = getElementValue(student, "email");
+        String rollNumber = getStudentRollNumber(student);
+        String username = getElementValue(student, "username");
+        String passwordHash = getElementValue(student, "password_hash");
+        String plainPassword = getElementValue(student, "plain_password");
+        String role = getElementValue(student, "role");
+        String year = getElementValue(student, "year");
+        String paymentStatus = getElementValue(student, "payment_status");
+        String status = getElementValue(student, "status");
+        String allocationStatus = getElementValue(student, "allocation_status");
+        String registrationDate = getElementValue(student, "registration_date");
 
-        // Add allocation details if present
-        String block = getElementValue(student, "block");
-        if (block != null) data.put("block", block);
-        String floor = getElementValue(student, "floor");
-        if (floor != null) data.put("floor", floor);
-        String room = getElementValue(student, "room");
-        if (room != null) data.put("room", room);
-        String bed = getElementValue(student, "bed");
-        if (bed != null) data.put("bed", bed);
+        data.put("student_id", studentId);
+        data.put("studentId", studentId);
+        data.put("name", name);
+        data.put("email", email);
+        data.put("rollNumber", rollNumber);
+        data.put("roll_number", rollNumber);
+        data.put("username", username);
+        data.put("password_hash", passwordHash);
+        data.put("plain_password", plainPassword);
+        data.put("role", role);
+        data.put("year", year);
+        data.put("payment_status", paymentStatus);
+        data.put("status", status);
+        data.put("allocation_status", allocationStatus);
+        data.put("registration_date", registrationDate);
+
+        // Allocation can exist in either legacy (block/floor/room/bed) or current
+        // (allocated_block/allocated_floor/allocated_room/allocated_bed) tags.
+        String block = getElementValue(student, "allocated_block");
+        if (block == null || block.trim().isEmpty()) {
+            block = getElementValue(student, "block");
+        }
+        String floor = getElementValue(student, "allocated_floor");
+        if (floor == null || floor.trim().isEmpty()) {
+            floor = getElementValue(student, "floor");
+        }
+        String room = getElementValue(student, "allocated_room");
+        if (room == null || room.trim().isEmpty()) {
+            room = getElementValue(student, "room");
+        }
+        String bed = getElementValue(student, "allocated_bed");
+        if (bed == null || bed.trim().isEmpty()) {
+            bed = getElementValue(student, "bed");
+        }
+
+        if (block != null) {
+            data.put("block", block);
+            data.put("allocated_block", block);
+        }
+        if (floor != null) {
+            data.put("floor", floor);
+            data.put("allocated_floor", floor);
+        }
+        if (room != null) {
+            data.put("room", room);
+            data.put("roomNo", room);
+            data.put("allocated_room", room);
+        }
+        if (bed != null) {
+            data.put("bed", bed);
+            data.put("bedNo", bed);
+            data.put("allocated_bed", bed);
+        }
 
         return data;
     }
 
     private String getElementValue(Element parent, String tagName) {
-        NodeList nodes = parent.getElementsByTagName(tagName);
-        if (nodes.getLength() > 0) {
-            return nodes.item(0).getTextContent();
+        NodeList nodes = parent.getChildNodes();
+        for (int i = 0; i < nodes.getLength(); i++) {
+            Node node = nodes.item(i);
+            if (node.getNodeType() == Node.ELEMENT_NODE && tagName.equals(node.getNodeName())) {
+                return node.getTextContent();
+            }
         }
         return null;
+    }
+
+    private String getStudentRollNumber(Element student) {
+        String roll = getElementValue(student, "roll_number");
+        if (roll == null || roll.trim().isEmpty()) {
+            roll = getElementValue(student, "rollNo");
+        }
+        return roll;
     }
 
     private Map<String, String> parseRoomElement(Element room) {

@@ -96,6 +96,38 @@ body {
     box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
 }
 
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    padding-right: 42px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    padding: 2px 4px;
+}
+
+.password-toggle:hover,
+.password-toggle.visible {
+    color: var(--primary-color);
+}
+
+.password-toggle:focus {
+    outline: none;
+    color: var(--primary-color);
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

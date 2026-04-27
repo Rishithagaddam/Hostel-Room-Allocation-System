@@ -23,7 +23,10 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        <button type="button" class="password-toggle" id="passwordToggle" aria-label="Show password" title="Show password">&#128065;</button>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -39,5 +42,24 @@
             </form>
         </div>
     </div>
+
+    <script>
+        (function () {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.getElementById('passwordToggle');
+
+            if (!passwordInput || !toggleButton) {
+                return;
+            }
+
+            toggleButton.addEventListener('click', function () {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                toggleButton.classList.toggle('visible', isPassword);
+                toggleButton.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+                toggleButton.setAttribute('title', isPassword ? 'Hide password' : 'Show password');
+            });
+        })();
+    </script>
 </body>
 </html>
