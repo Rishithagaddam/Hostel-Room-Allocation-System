@@ -21,31 +21,123 @@ public class AllocationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json;charset=UTF-8");
+
+        System.out.println("DEBUG: AllocationServlet doPost called");
+
+        response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         try {
-            // Read JSON from request body
-            StringBuilder jsonBuffer = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             String line;
+
             java.io.BufferedReader reader = request.getReader();
             while ((line = reader.readLine()) != null) {
-                jsonBuffer.append(line);
+                sb.append(line);
             }
-            String jsonString = jsonBuffer.toString();
 
-            // Parse JSON
+            String jsonString = sb.toString();
+            System.out.println("DEBUG: Received JSON: " + jsonString);
+
             org.json.JSONObject json = new org.json.JSONObject(jsonString);
-            String action = json.optString("action", "allocate").trim();
 
-            if ("reassign".equals(action)) {
-                handleReassign(request, response, json);
-            } else {
-                handleAllocate(request, response, json);
+            String rollNumber = json.getString("rollNumber");
+            String block = json.getString("block");
+            String floor = json.getString("floor");
+            String roomNo = json.getString("roomNo");
+            String bedNo = json.getString("bedNo");
+
+            System.out.println("ALLOC DATA => rollNumber=" + rollNumber +
+                    ", block=" + block +
+                    ", floor=" + floor +
+                    ", roomNo=" + roomNo +
+                    ", bedNo=" + bedNo);
+
+            // STEP 1
+            System.out.println("DEBUG: About to call allocateRoom");
+            boolean allocated = xmlManager.allocateRoom(
+                    rollNumber, block, floor, roomNo, bedNo
+            );
+            System.out.println("STEP1 allocateRoom done: " + allocated);
+
+            if (!allocated) {
+                response.getWriter().write("{\"success\":false,\"message\":\"Allocation failed\"}");
+                return;
             }
+
+            // STEP 2
+            System.out.println("DEBUG: About to call updateStudentAllocationStatus");
+            xmlManager.updateStudentAllocationStatus(
+                    rollNumber, "ALLOCATED", block, floor, roomNo, bedNo
+            );
+            System.out.println("STEP2 updateStudentAllocationStatus done");
+
+            // STEP 3
+            System.out.println("DEBUG: About to call getStudentByRollNo");
+            Map<String,String> student =
+                    xmlManager.getStudentByRollNo(rollNumber);
+            System.out.println("STEP3 student fetched: " + (student != null ? "found" : "null"));
+
+            // STEP 4 EMAIL
+            boolean emailSent = false;
+            if(student != null){
+                System.out.println("DEBUG: About to send email to: " + student.get("email"));
+                emailSent = EmailService.sendAllocationEmail(
+                    student.get("name"),
+                    student.get("email"),
+                    rollNumber,
+                    block,
+                    floor,
+                    roomNo,
+                    bedNo
+                );
+                System.out.println("DEBUG: Email sent result: " + emailSent);
+            } else {
+                System.out.println("DEBUG: Student not found, skipping email");
+            }
+            System.out.println("STEP4 email done");
+
+            // Prepare success response
+            String successMessage = emailSent ?
+                "Room allocated successfully" :
+                "Room allocated successfully but email could not be sent";
+
+            String jsonResponse = "{\"success\":true,\"message\":\"" + successMessage + "\"}";
+            System.out.println("DEBUG: About to send response: " + jsonResponse);
+
+            try {
+                if (!response.isCommitted()) {
+                    response.getWriter().write(jsonResponse);
+                    response.getWriter().flush();
+                    System.out.println("DEBUG: Response sent successfully");
+                } else {
+                    System.out.println("ERROR: Response already committed!");
+                }
+            } catch (Exception e) {
+                System.err.println("ERROR: Failed to write response: " + e.getMessage());
+                e.printStackTrace();
+            }
+
         } catch (Exception e) {
+            System.err.println("CRITICAL ERROR in AllocationServlet: " + e.getMessage());
             e.printStackTrace();
-            sendJsonError(response, "Error: " + e.getMessage());
+
+            // Try to send error response
+            try {
+                String errorMessage = e.getMessage() != null ? e.getMessage().replace("\"","").replace("\\","") : "Unknown error";
+                String errorResponse = "{\"success\":false,\"message\":\"" + errorMessage + "\"}";
+
+                if (!response.isCommitted()) {
+                    response.getWriter().write(errorResponse);
+                    response.getWriter().flush();
+                    System.out.println("DEBUG: Error response sent successfully");
+                } else {
+                    System.out.println("ERROR: Cannot send error response - response already committed!");
+                }
+            } catch (Exception e2) {
+                System.err.println("CRITICAL: Failed to send error response: " + e2.getMessage());
+                e2.printStackTrace();
+            }
         }
     }
 
@@ -103,17 +195,34 @@ public class AllocationServlet extends HttpServlet {
 
             // Get student info for email
             Map<String, String> student = xmlManager.getStudentByRollNo(rollNumber);
-            String studentName = rollNumber;
-            String email = "";
+            System.out.println("DEBUG: Student lookup for rollNumber: " + rollNumber);
+            System.out.println("DEBUG: Student data: " + student);
+
+            boolean emailSent = false;
+
             if (student != null) {
-                studentName = student.get("name");
-                email = student.get("email");
+                String studentEmail = student.get("email");
+                String studentName = student.get("name");
+                System.out.println("DEBUG: Attempting to send email to: " + studentEmail + " for student: " + studentName);
+                emailSent = EmailService.sendAllocationEmail(
+                    studentName,
+                    studentEmail,
+                    rollNumber,
+                    block,
+                    floor,
+                    roomNo,
+                    bedNo
+                );
+                System.out.println("DEBUG: Email sent result: " + emailSent);
+            } else {
+                System.out.println("DEBUG: Student not found for rollNumber: " + rollNumber);
             }
 
-            // Send allocation email
-            EmailService.sendAllocationEmail(studentName, email, rollNumber, block, floor, roomNo, bedNo);
-
-            sendJsonSuccess(response, "Room allocated successfully");
+            if (emailSent) {
+                sendJsonSuccess(response, "Room allocated successfully and confirmation email sent");
+            } else {
+                sendJsonSuccess(response, "Room allocated successfully, but email could not be sent");
+            }
         } else {
             sendJsonError(response, "Failed to allocate room - bed may already be occupied");
         }

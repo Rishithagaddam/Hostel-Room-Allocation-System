@@ -306,7 +306,7 @@ function selectBed(event, roomId, bedId, status, roomName) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Room allocated successfully!');
+                alert(data.message || 'Room allocated successfully!');
                 // Reset selection state
                 selectedStudent = null;
                 selectedBedData = null;
@@ -316,7 +316,7 @@ function selectBed(event, roomId, bedId, status, roomName) {
                 // Reload data to reflect changes
                 loadStudents();
                 loadRooms();
-                if (typeof loadDashboardStats === "function") {
+                if (typeof loadDashboardStats === "function" && document.getElementById('total-students')) {
                     loadDashboardStats();
                 }
                 if (typeof loadAllocatedStudents === "function") {
@@ -375,7 +375,7 @@ function confirmAllocation() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Room allocated successfully!');
+                alert(data.message || 'Room allocated successfully!');
                 // Reset selection state
                 selectedStudent = null;
                 selectedBedData = null;
@@ -385,7 +385,7 @@ function confirmAllocation() {
                 // Reload data to reflect changes
                 loadStudents();
                 loadRooms();
-                if (typeof loadDashboardStats === "function") {
+                if (typeof loadDashboardStats === "function" && document.getElementById('total-students')) {
                     loadDashboardStats();
                 }
                 if (typeof loadAllocatedStudents === "function") {

@@ -227,26 +227,35 @@ function confirmLogout() {
 /**
  * Load dashboard stats
  */
+function setTextIfExists(id, value) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.textContent = value;
+    }
+}
+
 function loadDashboardStats() {
     fetch('/hostel-allocation/api/dashboard-stats')
         .then(response => response.json())
         .then(data => {
-            // Update stats cards by ID
-            document.getElementById('total-students').textContent = data.totalStudents;
-            document.getElementById('registered-students').textContent = data.registeredStudents;
-            document.getElementById('allocated-students').textContent = data.allocatedStudents;
-            document.getElementById('total-beds').textContent = data.totalBeds;
-            document.getElementById('available-beds').textContent = data.availableBeds;
-            document.getElementById('occupied-beds').textContent = data.occupiedBeds;
+            setTextIfExists('total-students', data.totalStudents);
+            setTextIfExists('registered-students', data.registeredStudents);
+            setTextIfExists('allocated-students', data.allocatedStudents);
+            setTextIfExists('total-beds', data.totalBeds);
+            setTextIfExists('available-beds', data.availableBeds);
+            setTextIfExists('occupied-beds', data.occupiedBeds);
 
-            // Update occupancy bar
-            const occupancyPercent = data.totalBeds > 0 ? (data.occupiedBeds / data.totalBeds * 100) : 0;
+            const occupancyPercent = data.totalBeds > 0
+                ? (data.occupiedBeds / data.totalBeds * 100)
+                : 0;
+
             const occupancyFill = document.querySelector('.occupancy-fill');
             const occupancyText = document.querySelector('.occupancy-text');
 
             if (occupancyFill) {
                 occupancyFill.style.width = occupancyPercent + '%';
             }
+
             if (occupancyText) {
                 occupancyText.textContent = occupancyPercent.toFixed(1) + '% Occupied';
             }

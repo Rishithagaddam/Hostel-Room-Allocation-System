@@ -1230,6 +1230,35 @@ public class XMLManager {
     }
 
     /**
+     * Update student password hash in students.xml
+     */
+    public boolean updateStudentPassword(String rollNumber, String passwordHash) {
+        try {
+            File studentsFile = new File(baseDir + File.separator + DATA_DIR + "students.xml");
+            if (!studentsFile.exists()) return false;
+
+            Document doc = documentBuilder.parse(studentsFile);
+            NodeList studentList = doc.getElementsByTagName("student");
+
+            for (int i = 0; i < studentList.getLength(); i++) {
+                Element student = (Element) studentList.item(i);
+                String roll = getElementValue(student, "roll_number");
+
+                if (roll != null && roll.trim().equals(rollNumber.trim())) {
+                    setOrCreateElement(doc, student, "password_hash", passwordHash);
+
+                    saveDocument(doc, studentsFile.getAbsolutePath());
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    /**
      * Get student by ID (student_id like S001, S002, etc.)
      */
     public Map<String, String> getStudentById(String studentId) {
